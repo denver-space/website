@@ -1,0 +1,18 @@
+---
+import { fetchBitcoinPrice } from "@utils/api/fetch-bitcoin-price.js";
+import { fetchOnChainBalance } from "@utils/api/fetch-onchain-balance.js";
+import { ONCHAIN_ADDRESSES } from "../../lib/apiclients.ts";
+
+const bitcoinPrice = await fetchBitcoinPrice();
+const onChainData = await fetchOnChainBalance(ONCHAIN_ADDRESSES, bitcoinPrice);
+
+---
+<section class="doc-card bg-white border-4 border-[#ffffff] rounded-lg p-6 transition-transform duration-500 ease hover:transform hover:translate-y-1">
+  <div class="section-title flex items-center">
+    <h2 class="text-2xl font-semibold leading-snug tracking-tight">Onchain Balance</h2>
+  </div>
+  <div class="text-lg leading-relaxed text-gray-500 mt-3">
+    <p class="text-3xl font-bold">${onChainData.valueUSD.toFixed(2)}</p>
+    <p class="text-sm text-gray-500 mt-2">${onChainData.balance.toFixed(8)} USD</p>
+  </div>
+</section>
