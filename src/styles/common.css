@@ -1,0 +1,68 @@
+/* Common gradient styles used across the site */
+.bg-gradient {
+  background: linear-gradient(135deg, #E51F5D, #F68830, #F5D54C, #FDE3B7);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease;
+}
+
+.bg-gradient:hover {
+  transform: translateY(-5px);
+}
+
+.custom-gradient {
+  background: linear-gradient(135deg, #E51F5D, #F68830, #F5D54C, #FDE3B7);
+}
+
+/* Common utility classes */
+.white-svg {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+/* Common card styles that inherit from bg-gradient */
+.contact-card {
+  background: linear-gradient(135deg, #E51F5D, #F68830, #F5D54C, #FDE3B7);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.sign-in-card {
+  background: linear-gradient(135deg, #E51F5D, #F68830, #F5D54C, #FDE3B7);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease;
+}
+
+.sign-in-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Sponsors grid layout */
+.sponsors-grid {
+  display: grid;
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .sponsors-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .sponsors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+}
+
+@media (max-width: 767px) {
+  .sponsors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+  }
+}

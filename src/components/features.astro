@@ -1,0 +1,77 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon/components";
+
+const features = [
+{
+    title: "Events and Education",
+    description:
+      "We host a variety of bitcoin and freedom focused events, from educational presentations and happy hour social gatherings to weekend workshops.",
+    icon: "bx:bxs-window-alt",
+  },
+{
+    title: "Working Space",
+    description:
+      "Our member-accessed facility offers flexible and private workspaces with a welcoming community of bitcoiners to build and collaborate with.",
+    icon: "bx:bxs-briefcase",
+  },
+  {
+    title: "Amenities",
+    description:
+      "Lounge space, content resources, conference rooms and kitchens, with shared & dedicated desks througout. We have it all. Perfect for work and play.",
+    icon: "bx:bxs-home",
+  },
+  {
+    title: "Extensive Resources",
+    description:
+      "Surround yourself with the brightest bitcoin tech minds in the West. Chances are, we know the expert you're looking for.",
+    icon: "bx:bxs-file-find",
+  },
+  {
+    title: "Community",
+    description: "Build meaningful relationships with the best in the industry. Want to hang around bitcoiners? This is the place.",
+    icon: "bx:bxs-user",
+  },
+  {
+    title: "Simple Membership",
+    description:
+      "Our simple membership makes for fair access to all. Choose between social, co-working, or private office tiers.",
+    icon: "bx:bxs-badge-check",
+  },
+];
+---
+
+<section class="flex flex-col mt-0 mb-20 items-center lg:space-y-7">
+  <img
+    src="/assets/venue/3700Franklin_Back.webp"
+    alt="The Space Building Back" 
+    class="w-full lg:w-11/12 rounded-lg" 
+    style="box-shadow: none;" 
+    loading="lazy"
+  />
+</section>
+
+<div class="mt-0 md:mt-0 lg:mt-0">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    A Community Hub - Built by and for Bitcoiners
+  </h2>
+  <p class="text-lg mt-4 text-slate-600">
+    What do you do in The Space?
+  </p>
+</div>
+
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+  {
+    features.map((item) => (
+      <div class="flex gap-4 items-start">
+        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
+          <Icon class="text-white" name={item.icon} />
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+          <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+        </div>
+      </div>
+    ))
+  }
+</div>

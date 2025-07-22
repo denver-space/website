@@ -1,0 +1,257 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+const values = [
+  { title: "Event Space", description: "Our presentation room and common area connect two buildings, perfect for larger events.", icon: "bx:building" },
+  { title: "Co-Working Desks", description: "Large fold-up desks on wheels and office chairs make it easy to work wherever.", icon: "bx:bxs-group" },
+  { title: "Conference Room", description: "Bookable conference rooms are ready for calls, meetings, and private presentations.", icon: "bx:table" },
+  { title: "Lounge Space", description: "Half of our venue is set up for lounging and socialization, with premium furniture and decor. Sound-money vibe.", icon: "bx:chair" },
+  { title: "Podcast Room", description: "A private podcast room allows us to record the best content in The Space.", icon: "bx:bxs-microphone" },
+  { title: "Backyard", description: "A fenced backyard and hangout area connects to two separate parts of the building. Great for BBQs.", icon: "bx:bxs-tree" },
+  { title: "Snacks and Drinks", description: "We keep stock of some popular workplace snacks and drinks.", icon: "bx:bxs-drink" },
+  { title: "3 Kitchens, 5 Bathrooms", description: "Three full kitchens and five bathrooms keep things from feeling overwhelmed.", icon: "bx:dish" },
+  { title: "Off-Street Parking", description: "Our venue has five parking spots behind the building. First come, first serve.", icon: "bx:bxs-car" },
+];
+---
+
+<style>
+  body, html {
+    overflow-x: hidden;
+  }
+
+  .custom-gradient {
+    background: linear-gradient(130deg, #E51F5D, #F68830, #F5D54C, #F68830);
+  }
+
+  .icon-circle {
+    background: black;
+    border-radius: 50%;
+    padding: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-circle .icon {
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .vision-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+
+  .volunteer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .volunteer {
+    display: inline-block;
+    text-align: center;
+  }
+  .volunteer img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+  }
+</style>
+
+<Layout title="Venue">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Our Bitcoin Hub</Fragment>
+      <Fragment slot="desc">
+        <p class="text-lg mt-4 text-slate-600 px-0 md:px-4 lg:px-10">
+          3700 N Franklin St. Denver, CO <br/>
+        </p>
+        <p class="text-lg mt-4 text-left md:text-justify text-slate-600 px-0 md:px-4 lg:px-10">
+          The Space is located in the RiNo neighborhood of Denver, Colorado. Our building is only a few blocks walk from the 38th & Blake train stop, connecting Union Station to the Denver Airport.
+        </p>
+      </Fragment>
+    </Sectionhead>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+  <img 
+    src="/assets/venue/3700Franklin_Back.webp" 
+    alt="The Space building exterior back view" 
+    class="venue-image" 
+    loading="lazy"
+    width="600"
+    height="400"
+  />
+  <img 
+    src="/assets/venue/3700Franklin_Front.webp" 
+    alt="The Space building exterior front view" 
+    class="venue-image" 
+    loading="lazy"
+    width="600"
+    height="400"
+  />
+  <img 
+    src="/assets/venue/VenueEvent_deck_006.png" 
+    alt="The Space interior lounge space" 
+    class="venue-image" 
+    loading="lazy"
+    width="600"
+    height="400"
+  />
+  <img 
+    src="/assets/venue/VenueEvent_deck_007.png" 
+    alt="The Space interior kitchen area" 
+    class="venue-image" 
+    loading="lazy"
+    width="600"
+    height="400"
+  />
+  <img 
+    src="/assets/venue/VenueEvent_deck_014.png" 
+    alt="The Space event room" 
+    class="venue-image" 
+    loading="lazy"
+    width="600"
+    height="400"
+  />
+  <img 
+    src="/assets/venue/VenueEvent_deck_016.png" 
+    alt="The Space event example" 
+    class="venue-image" 
+    loading="lazy"
+    width="600"
+    height="400"
+  />
+  <img 
+    src="/assets/venue/The_Space_EventVenue_Deck.001.jpeg" 
+    alt="The Space coworking area" 
+    class="venue-image" 
+    loading="lazy"
+    width="600"
+    height="400"
+  />
+  <img 
+    src="/assets/venue/The_Space_EventVenue_Deck.002.jpeg" 
+    alt="The Space upstairs coworking area" 
+    class="venue-image" 
+    loading="lazy"
+    width="600"
+    height="400"
+  />
+</div>
+
+    <!-- Amenities -->
+    <div class="px-0">
+      <section class="mt-28 mb-28">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-28">Building Amenities</h2>
+        <p class="text-lg mt-4 text-slate-600">We've Got it All:</p>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 mb-6 gap-16">
+          {values.map((item) => (
+            <div class="flex gap-4 items-start">
+              <div class="icon-circle">
+                <Icon class="icon" name={item.icon} />
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg">{item.title}</h3>
+                <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+
+    <!-- More Venue Images -->
+    <section class="flex flex-col mt-20 mb-20 items-center lg:space-y-7">
+      <img 
+        src="/assets/venue/location_map.webp" 
+        alt="The Space location map showing Denver area" 
+        class="w-full lg:w-11/12 rounded-lg" 
+        style="box-shadow: none;"
+        loading="lazy"
+        width="1200"
+        height="800"
+      />
+    </section>
+    
+  </Container>
+  <div class="volunteer-section text-center bg-black py-10">
+    <h2 class="mt-10 text-4xl font-bold text-white">Resident Companies</h2>
+    <p class="mt-4 mb-4 px-10 text-center text-gray-200">The companies building the future of Bitcoin from within The Space.</p>
+    <div class="mt-20 volunteer-container">
+      <div class="volunteer mt-4">
+        <a href="https://epochvc.io" target="_blank">
+          <img 
+            src="/assets/companies/Epoch.png" 
+            alt="Epoch VC company logo" 
+            class="h-24 w-24 object-cover rounded-full border-2 border-white shadow-md"
+            loading="lazy"
+            width="96"
+            height="96"
+          />
+        </a>
+        <p class="text-white mt-2">Epoch VC</p>
+      </div>
+      <div class="volunteer mt-4">
+        <a href="https://basilic.io" target="_blank">
+          <img 
+            src="/assets/companies/Basilic.png" 
+            alt="Basilic Financial company logo" 
+            class="h-24 w-24 object-cover rounded-full border-2 border-white shadow-md"
+            loading="lazy"
+            width="96"
+            height="96"
+          />
+        </a>
+        <p class="text-white mt-2">Basilic Financial</p>
+      </div>
+      <div class="volunteer mt-4">
+        <a href="https://www.lemondrop.finance/" target="_blank">
+          <img 
+            src="/assets/companies/lemondrop.png" 
+            alt="Lemondrop company logo" 
+            class="h-24 w-24 object-cover rounded-full border-2 border-white shadow-md"
+            loading="lazy"
+            width="96"
+            height="96"
+          />
+        </a>
+        <p class="text-white mt-2">Lemondrop</p>
+      </div>
+      <div class="volunteer mt-4">
+        <a href="https://exergyheat.com" target="_blank">
+          <img 
+            src="/assets/companies/Logo1_black_on_blue_square.png" 
+            alt="Exergy company logo" 
+            class="h-24 w-24 object-cover rounded-full border-2 border-white shadow-md"
+            loading="lazy"
+            width="96"
+            height="96"
+          />
+        </a>
+        <p class="text-white mt-2">Exergy</p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+
+<style>
+    .venue-image {
+  object-fit: cover; /* Maintain aspect ratio and fill the space */
+  border-radius: 10px; /* Optional: keep the rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
+  }
+</style>

@@ -1,0 +1,142 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+---
+
+<Layout title="Resources">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Resources</Fragment>
+      <Fragment slot="desc">
+        <p class="text-lg mt-4 text-slate-600 px-0 md:px-4 lg:px-10">
+          Organization documents, tech-stack, operational resources, and FAQ. <br/>
+        </p>
+        <p class="text-lg mt-4 text-left md:text-justify text-slate-600 px-0 md:px-4 lg:px-10">
+          The Space is an education-focused non-profit organization and member community hub, dedicated to transparency, integrity, and  sovereignty.
+          We value freedom and working publicly. These principles guide our operations.
+          See the documentation below for more detail.
+        </p>
+      </Fragment>
+    </Sectionhead>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12 mb-20 items-stretch">
+      <!-- Member Resources Section -->
+      <a href="https://discourse.denver.space/c/member-resources/10" target="_blank" rel="noopener noreferrer" class="doc-card bg-gradient border-4 border-[#ffffff] rounded-lg p-6 transition-transform duration-500 ease hover:transform hover:translate-y-1 flex items-center justify-center h-48">
+        <h2 class="text-3xl font-bold text-center text-white">Member Resources</h2>
+      </a>
+
+      <!-- Tech Stack Section -->
+      <a href="https://discourse.denver.space/c/tech-stack/5" target="_blank" rel="noopener noreferrer" class="doc-card bg-gradient border-4 border-[#ffffff] rounded-lg p-6 transition-transform duration-500 ease hover:transform hover:translate-y-1 flex items-center justify-center h-48">
+        <h2 class="text-3xl font-bold text-center text-white">Tech Stack</h2>
+      </a>
+
+      <!-- Public Resources Section -->
+      <a href="https://discourse.denver.space/c/public-resources/4" target="_blank" rel="noopener noreferrer" class="doc-card bg-gradient border-4 border-[#ffffff] rounded-lg p-6 transition-transform duration-500 ease hover:transform hover:translate-y-1 flex items-center justify-center h-48">
+        <h2 class="text-3xl font-bold text-center text-white">Public Resources</h2>
+      </a>
+
+      <!-- Governance & Operations Section -->
+      <a href="https://discourse.denver.space/c/operations/7" target="_blank" rel="noopener noreferrer" class="doc-card bg-gradient border-4 border-[#ffffff] rounded-lg p-6 transition-transform duration-500 ease hover:transform hover:translate-y-1 flex items-center justify-center h-48">
+        <h2 class="text-3xl font-bold text-center text-white">Governance & Operations</h2>
+      </a>
+
+      <!-- Treasury Section -->
+      <a href="https://discourse.denver.space/c/treasury/8" target="_blank" rel="noopener noreferrer" class="doc-card bg-gradient border-4 border-[#ffffff] rounded-lg p-6 transition-transform duration-500 ease hover:transform hover:translate-y-1 flex items-center justify-center h-48">
+        <h2 class="text-3xl font-bold text-center text-white">Treasury</h2>
+      </a>
+
+      <!-- Education Section -->
+      <a href="https://discourse.denver.space/c/education/9" target="_blank" rel="noopener noreferrer" class="doc-card bg-gradient border-4 border-[#ffffff] rounded-lg p-6 transition-transform duration-500 ease hover:transform hover:translate-y-1 flex items-center justify-center h-48">
+        <h2 class="text-3xl font-bold text-center text-white">Education</h2>
+      </a>
+    </div>
+  </Container>
+
+  <!-- FAQ Section with Gradient Background -->
+  <div class="faq-gradient py-12 mt-0">
+    <Container>
+      <section class="faq-section px-0 md:px-4 lg:px-10">
+        <h2 class="text-4xl mt-12 mb-12 font-bold text-white">FAQ</h2>
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">What is The Space?</p>
+          <p class="text-sm text-gray-400">The Space is a bitcoin citadel and social hub, focused on education, collaboration, and community building.</p>
+        </div>
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">Where is The Space?</p>
+          <p class="text-sm text-gray-400">Our physical location is in the heart of Denver, CO at 3700 N Franklin St. Accessibile by Denver Light Rail public transport from the Denver Airport. A short walk from the 38th and Blake A line train station.</p>
+        </div>
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">Why should I become a Member?</p>
+          <p class="text-sm text-gray-400">The Space is focused on education and community building within the bitcoin ecosystem. Become a member to learn, build relationships, socialize and work with the brightest in the industry.
+        </div>
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">Do I need to be a member to physically access The Space?</p>
+          <p class="text-sm text-gray-400">Yes. Only members get regular access to our physical location. Free and ticketed events are open to the public.</p>
+        </div>
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">What kinds of events and presentations will you have?</p>
+          <p class="text-sm text-gray-400">Education is the core pillar of our mission. The Space will host events ranging from novice friendly to in-the-weeds deep dives. We also host workshops, panel discussions and high signal summits and conferences.</p>
+        </div>
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">How can I become a member?</p>
+          <p class="text-sm text-gray-400">You can apply for membership by filling out the member application form. We'll follow up to get you onboarded!</p>
+        </div>
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">How many members are there?</p>
+          <p class="text-sm text-gray-400">We have 55 incredible Founding Members, with new members joining regularly. As currently defined in our Bylaws, The Space is limited to a maximum of 210 members.</p>
+        </div>
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">What defines 'founding' members and sponsors?</p>
+          <p class="text-sm text-gray-400">Anyone who joined The Space or supported us with sponsorship before we locked in a physical venue qualified as a founding supporter. Founding support eligiblity ended on 10/1/24 with our opening day.</p>
+        </div>
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">Who runs The Space?</p>
+          <p class="text-sm text-gray-400">The Space is run by a member-elected Board of Directors. Board positions are filled annualy via member nominations and votes. The Board selects Officers that facilitate daily operations.</p>
+        </div>
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">Where does my money go?</p>
+          <p class="text-sm text-gray-400">All income from membership dues, donations, sponsors, ticketed events and other revenue streams are used to service our education mission and operational costs.</p>
+        </div>
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">How can I support The Space?</p>
+          <p class="text-sm text-gray-400">You can support The Space by becoming a member, attending events, making donations or sponsoring to further our initiatives.</p>
+        </div>
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">What about alt-coins?</p>
+          <p class="text-sm text-gray-400">We're a bitcoin only organization. No distractions. We do, however, support and advocate for crypto developers to transition and build on top of bitcoin.</p>
+        </div>
+      </section>
+    </Container>
+  </div>
+
+</Layout>
+
+<style>
+  .bg-gradient {
+    background: linear-gradient(135deg, #E51F5D, #F68830, #F5D54C, #FDE3B7);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+  }
+  .bg-gradient:hover {
+    transform: translateY(-5px);
+  }
+  .faq-gradient {
+    background: linear-gradient(135deg, #000000, #000000);
+  }
+  .doc-card {
+    background: linear-gradient(135deg, #E51F5D, #F68830, #F5D54C, #FDE3B7);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+  }
+  .doc-card:hover {
+    transform: translateY(-5px);
+  }
+  .faq-section p {
+    margin-bottom: 1rem;
+  }
+  .section-title .icon {
+    width: 36px;
+    height: 36px;
+  }
+</style>

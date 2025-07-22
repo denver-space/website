@@ -1,0 +1,347 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+---
+
+<Layout title="Heatpunk Summit">
+  <Container class="w-full">
+    <Sectionhead>
+      <Fragment slot="title">Undermine 2025 - The Heatpunk Summit</Fragment>
+      <Fragment slot="desc">
+        Shaping the Future of Electric Heating and Bitcoin Mining
+      </Fragment>
+    </Sectionhead>
+
+    <!-- Purchase Tickets -->
+    <div class="flex justify-center mt-12">
+      <a data-label="Undermine 2025" style="background-color:#e51f5d;color:#ffffff;min-width:128px;padding:8px 16px;border-radius:8px;text-align:center;font-weight:bold;text-decoration:none;display:inline-block;" href="https://x.com/tylerkstevens" target="_blank" rel="no referrer noopener">Stay Tuned for Undermine 2026</a>
+    </div>
+
+    <!-- Heatpunk Image -->
+    <div class="flex justify-center mt-10">
+      <img 
+        src="/assets/events/Undermine2025/heatpunk_logo_transparent.webp" 
+        alt="Heatpunk Summit logo for Undermine 2025" 
+        class="rounded-lg w-full md:w-3/4 lg:w-1/2"
+        loading="lazy"
+        width="600"
+        height="400"
+      />
+    </div>
+
+    <!-- Description Section -->
+    <div class="mt-16">
+      <h2 class="text-3xl font-bold">Overview</h2>
+      <ul class="list-disc pl-5 mt-4">
+        <p class="text-lg mt-4 text-left md:text-justify text-black px-4 md:px-4 lg:px-10">
+          Undermine is a groundbreaking two-day conference dedicated to the rapidly emerging field of hashrate heating, harnessing Bitcoin miners to power electric heating infrastructure. 
+          The Hashrate Heatpunks are a group of bitcoiners undermining the status-quo. Mining doesn't have to be centralized in pub-co mega facilities or massive mining pools - and home hashing doesn't have to be exclusive to the ideologically motivated. Instead, we can bring mining to all via heating appliances and home devices. 
+        </p>
+        <p class="text-lg mt-4 text-left md:text-justify text-black px-4 md:px-4 lg:px-10">
+          As the Bitcoin mining industry undergoes a transformative phase, the potential to unlock additional utility through heating has become clear.
+          The 2025 Heatpunk Summit brings together the brightest minds and hands-on builders, tinkerers, plebs, engineers, tradespeople, contractors, and companies to collaborate on advancing home mining.
+          By leveraging Bitcoin miners for heating, we can decentralize network hashrate, lower utility costs, and accelerate Bitcoin adoption as a neutral monetary asset.
+        </p>
+        <p class="text-lg mt-4 text-left md:text-justify text-black px-4 md:px-4 lg:px-10">
+          Join us in shaping the future of energy and Bitcoin at the forefront of this exciting new industry.
+        </p>
+      </ul>
+    </div>
+
+    <div class="mt-12">
+      <h2 class="text-2xl font-bold text-center">Grassroots Event Supporters</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 justify-center items-center mx-auto max-w-lg">
+        <div>
+          <a href="https://braiins.com" target="_blank" rel="noopener noreferrer">
+            <img 
+              src="/assets/events/Undermine2025/braiins.webp" 
+              alt="Braiins company logo" 
+              class="circle-image"
+              loading="lazy"
+              width="150"
+              height="150"
+            />
+          </a>
+        </div>
+        <div>
+          <a href="https://luxor.tech" target="_blank" rel="noopener noreferrer">
+            <img 
+              src="/assets/events/Undermine2025/luxor.webp" 
+              alt="Luxor company logo" 
+              class="circle-image"
+              loading="lazy"
+              width="150"
+              height="150"
+            />
+          </a>
+        </div>
+        <div>
+          <a href="https://compassmining.io" target="_blank" rel="noopener noreferrer">
+            <img 
+              src="/assets/events/Undermine2025/compass.webp" 
+              alt="Compass Mining company logo" 
+              class="circle-image"
+              loading="lazy"
+              width="150"
+              height="150"
+            />
+          </a>
+        </div>
+        <div>
+          <a href="https://bitcoinminingworld.com" target="_blank" rel="noopener noreferrer">
+            <img 
+              src="/assets/events/Undermine2025/BAM.webp" 
+              alt="Bitcoin Mining World (BAM) company logo" 
+              class="circle-image"
+              loading="lazy"
+              width="150"
+              height="150"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Date Section -->
+    <div class="mt-10">
+      <h2 class="text-3xl font-bold">Date and Time</h2>
+      <ul class="list-disc pl-5 mt-4">
+        <li>Friday, February 21 - Saturday, February 22, 2025</li>
+        <li>Summit activities will start 10 AM MST Friday morning on the 21st. Feel free to arrive anytime after 8 AM for coffee and breakfast.</li>
+        <li>We'll conclude a full day of summit activities on Saturday afternoon at 3:30 PM MST.</li>
+      </ul>
+    </div>
+
+    <!-- Location Section -->
+    <div class="mt-10">
+      <h2 class="text-3xl font-bold">Location</h2>
+      <p class="mt-4">
+        The Space - Denver's Bitcoin hub.
+      </p>
+      <ul class="list-disc pl-5 mt-4">
+        <li>Easily accessible from Denver International Airport via Train (no rental car required).</li>
+        <li>Ample accommodations nearby including hotels, restaurants, and bars within walking distance.</li>
+        <li>Located in the heart of Denver's RiNo (River North) district. Close to I-70 for easy access to the ski resorts.</li>
+      </ul>
+
+<!-- Venue Images Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+    <img 
+      src="/assets/venue/3700Franklin_Back.webp" 
+      alt="Heatpunk Summit venue exterior back view" 
+      class="venue-image"
+      loading="lazy"
+      width="400"
+      height="300"
+    />
+    <img 
+      src="/assets/venue/3700Franklin_Front.webp" 
+      alt="Heatpunk Summit venue exterior front view" 
+      class="venue-image"
+      loading="lazy"
+      width="400"
+      height="300"
+    />
+    <img 
+      src="/assets/venue/VenueEvent_deck_006.png" 
+      alt="Heatpunk Summit venue interior event space" 
+      class="venue-image"
+      loading="lazy"
+      width="400"
+      height="300"
+    />
+    <img 
+      src="/assets/venue/VenueEvent_deck_007.png" 
+      alt="Heatpunk Summit venue interior workspace" 
+      class="venue-image"
+      loading="lazy"
+      width="400"
+      height="300"
+    />
+    <img 
+      src="/assets/venue/VenueEvent_deck_014.png" 
+      alt="Heatpunk Summit venue conference room" 
+      class="venue-image"
+      loading="lazy"
+      width="400"
+      height="300"
+    />
+    <img 
+      src="/assets/venue/VenueEvent_deck_016.png" 
+      alt="Heatpunk Summit venue lounge area" 
+      class="venue-image"
+      loading="lazy"
+      width="400"
+      height="300"
+    />
+  </div>
+
+    <!-- Schedule Section -->
+    <div class="mt-10">
+      <h2 class="text-3xl font-bold">Schedule</h2>
+      <p class="mt-4">
+        The detailed event schedule will be emailed to attendeess. In general, programming will follow some form of this outline:
+      </p>
+      <p class="mt-4">
+        Day 1 - Friday, February 21: 10 AM - 4 PM
+      </p>
+      <ul class="list-disc pl-5 mt-4">
+        <li>Welcome Remarks and Hashrate Heating Overview for Novices</li>
+        <li>Heat Reuse Potential & Target Market- Why do this? Economic feasibility. Who's best fit for this? How big is the market?</li>
+        <li>Business Model Roundtable. What kinds of business are possible with hashrate heating? How does this change product and service offerings in the heating industry?</li>
+        <li>Product Demos & Hands on with Hashrate Heating Hardware.</li>
+        <li>Small Scale Mining. 120 V Loki Rigs, Bitaxes, and the importance of plug-and-play simple home mining solutions.</li>
+        <li>Adoption Landscape - What does it take to change the status quo of bitcoin mining? How does this scale to the average person? What are the regulatory hurdles?</li>
+        <li>Heatpunk's Manifesto - What do we believe and what is our mission? How will we promote prosperity while reamining true to the bitcoin network?</li>
+      </ul>
+      <p class="mt-4">
+        Day 2 - Saturday, February 22: 9 AM - 3:30 PM
+      </p>
+      <ul class="list-disc pl-5 mt-4">
+        <li>Controlling Hashrate Heaters - Home mining control and management - from space heaters to integrated heating systems.</li>
+        <li>Delivery Systems Debate - Air vs Immersion vs Hydro for heat reuse. What integrates best into heating systems?</li>
+        <li>Firmware, Software and Pools - What role do code and software features play in home mining and heating infrastructure?</li>
+        <li>Product Demos & Hands on with Hashrate Heating Hardware.</li>
+        <li>Bitmain or Bust? - Are we bound by Bitmain and MicroBT? What does the future of ASIC options mean for home mining and heating devices?</li>
+        <li>Challenges Ahead and Contractor Feedback - What challenges do we need to go overcome? Call to action. HVAC, Hydronic Plumbing, Electrical and other expert input. What miners need to know.</li>
+      </ul>
+    </div>
+
+    <!-- Attendees Section -->
+    <div class="mt-10">
+      <h2 class="text-3xl font-bold">Who Will be There</h2>
+      <p class="mt-4">
+        We want all the key players that are making hashrate heating a reality in attendance
+      </p>
+      <ul class="list-disc pl-5 mt-4">
+        <li>Bitcoin Miners</li>
+        <li>ASIC Manufacturers</li>
+        <li>Firmware Developers</li>
+        <li>FOSS Developers</li>
+        <li>Mining Pools</li>
+        <li>Pleb Builders</li>
+        <li>Hashrate Heating Founders</li>
+        <li>Engineers</li>
+        <li>Contractors & Tradesmen</li>
+        <li>Those with Passion</li>
+      </ul>
+    </div>
+
+    <!-- Speakers Section -->
+    <div class="mt-10">
+      <h2 class="text-3xl font-bold">Attendees</h2>
+      <p class="mt-4">
+        Here are some of the confirmed attendees you can expect to engage with:
+      </p>
+      <ul class="list-disc pl-5 mt-4">
+        <li>Firware and Pools: Braiins / Ocean / Luxor</li>
+        <li>ASIC Experts: Bob Burnett (Barefoot Mining), Proto Mining (Block), Skot900 (BitAxe)</li>
+        <li>Hashrate Heating Designers: Nakamoto Heating Solutions, Unbound Networks, Anadro, Softwarm LLC, 256Heat, Exergy LLC, HBIM, Untethered Mining, Constellation Heating, Hashrate House, Warm Bitcoin, Mint Green</li>
+        <li>Mining Hardware & Accessories: Fog Hashing, CryoByte, Altair Technologies, Forced Physics</li>
+        <li>FOSS Developers & Designers: Matt Hill (Start9), Skot9000 (BitAxe), Brett Rowan (PyASIC), 100AcresRanch (Thermohashostat)</li>
+        <li>Mining Decentralization: Bitcoin Mechanic, Boerst</li>
+        <li>Energy Experts: Upstream Data, Compass Mining, Saz Mining, Distributed Hash, Guardrail Mining</li>
+        <li>Trades, HVAC, Plumbing, Electrical & Engineering: Long HVAC and Controls, Tessere, Insol Corp, Rox Heating, Colorado Air Filter</li>
+        <li>Bitcoin Media and Education: Rob Warren (Bitcoin Miners Almanac), Trevor Bello (Build a Mine Podcast / Bitcoin Mining World), DJ Valerie B Love (Bitcoin for Peace)</li>
+      </ul>
+    </div>
+
+  <!-- Travel Section -->
+  <div class="mt-10">
+    <h2 class="text-3xl font-bold">Travel Information</h2>
+    <p class="mt-4">
+      The Space is located in an easily accessible part of Denver (3700 N Franklin St, Denver CO). Here are some recommendations for your stay:
+    </p>
+    <ul class="list-disc pl-5 mt-4">
+      <li>If you're only coming to town for Undermine, you don't need a rental car. If you are planning a ski trip or other travels around the summit, have at it.</li>
+      <li>The Denver RTD (Light Rail Transit) Train travels from the Denver Airport to Union Station every 15 minutes. A day pass ticket costs $10. Get off at the second to last stop, 38th and Blake St.</li>
+      <li>The Space has 5 parking spots behind the building. First come, first serve. Please be aware some parking spots may be reserved for summit activities. There is plenty of street parking around the venue.</li>
+      <li>There are three hotels within walking distance of The Space: Catbird, Vib, Cambria. There are also a handful of AirBnB's and VRBO's nearby.</li>
+
+    </ul>
+  </div>
+
+    <!-- Get Involved Section -->
+    <div class="mt-10">
+      <h2 class="text-3xl font-bold">Want to be involved in Undermine 2026?</h2>
+      <p class="mt-4">
+        Are you interested in being a part of the next Heatpunk Summit? Have questions? Hardware you want to bring? Want to join our hashrate heating collaboration group? Reach out below.
+      </p>
+      <div class="flex justify-center mt-12 mb-12">
+        <a data-label="Contact Us" style="background-color:#e51f5d;color:#ffffff;min-width:128px;padding:8px 16px;border-radius:8px;text-align:center;font-weight:bold;text-decoration:none;display:inline-block;" href="mailto:tks@tylerstevens.me" target="_blank" rel="no referrer noopener">Contact the Event Coordinator</a>
+      </div>
+
+      <div class="flex justify-center mt-12 mb-12">
+        <img 
+          src="/assets/events/Undermine2025/undermine_joinus.webp" 
+          alt="Join us for Undermine 2025 Heatpunk Summit" 
+          class="rounded-lg w-full md:w-3/4 lg:w-1/2"
+          loading="lazy"
+          width="600"
+          height="400"
+        />
+      </div>
+
+      <h2 class="text-3xl font-bold">TIMECHAIN™ Conference Series</h2>
+      <p class="mt-4 mb-12">
+        Conferences that are focused exclusively on the Bitcoin Network & Protocol.
+      </p>
+    </div>
+
+  </Container>
+</Layout>
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-gap: 16px;
+  }
+
+  /* For large screens: 3 columns, 2 rows */
+  @media (min-width: 1024px) {
+    .grid-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* For medium screens: 2 columns, 3 rows */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* For small screens: 1 column, 6 rows */
+  @media (max-width: 767px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .venue-image {
+  object-fit: cover; /* Maintain aspect ratio and fill the space */
+  border-radius: 10px; /* Optional: keep the rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
+  }
+
+  .circle-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Ensure it's always a square */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover; /* Crop to fit within the circle */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better aesthetics */
+    transition: transform 0.3s ease; /* Add hover effect */
+  }
+
+  .circle-image:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+  }
+</style>

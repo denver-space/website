@@ -1,0 +1,86 @@
+---
+import Container from "@components/container.astro";
+import Layout from "@layouts/Layout.astro";
+import Button from "@components/ui/button.astro";
+---
+
+<Layout title="Subscription Pending">
+  <Container>
+    <div class="flex flex-col items-center justify-center min-h-[70vh] text-center">
+      <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-8">
+        Almost there!
+      </h1>
+      <p class="text-lg mb-4">
+        Please check your email to confirm your subscription.
+      </p>
+      <p class="text-md text-gray-600 mb-8">
+        If you don't see the confirmation email, please check your spam folder.
+      </p>
+      
+      <!-- Resend confirmation section -->
+      <div class="mb-8">
+        <p class="text-md text-gray-600 mb-4">
+          Didn't receive the email?
+        </p>
+        <form id="resendForm" class="flex flex-col items-center gap-4">
+          <input 
+            type="email" 
+            name="email" 
+            id="email"
+            placeholder="Enter your email"
+            class="px-4 py-2 border rounded-md w-64"
+            required
+          />
+          <button 
+            type="submit" 
+            class="text-sm px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+          >
+            Resend Confirmation Email
+          </button>
+          <div id="message" class="text-sm"></div>
+        </form>
+      </div>
+
+      <div>
+        <a href="https://denver.space" class="inline-block">
+          <Button size="lg" style="primary">Return to denver.space</Button>
+        </a>
+      </div>
+    </div>
+  </Container>
+</Layout>
+
+<script>
+  const form = document.getElementById('resendForm');
+  const messageDiv = document.getElementById('message');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!messageDiv) return;
+    
+    const formData = new FormData(form as HTMLFormElement);
+    messageDiv.textContent = 'Sending...';
+    messageDiv.className = 'text-sm text-gray-600';
+
+    try {
+      const response = await fetch('/api/resend-confirmation', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        messageDiv.textContent = 'Confirmation email has been resent. Please check your inbox.';
+        messageDiv.className = 'text-sm text-green-600';
+        (form as HTMLFormElement).reset();
+      } else {
+        messageDiv.textContent = data.error || 'Failed to resend confirmation email';
+        messageDiv.className = 'text-sm text-red-600';
+      }
+    } catch (error) {
+      messageDiv.textContent = 'An error occurred. Please try again.';
+      messageDiv.className = 'text-sm text-red-600';
+    }
+  });
+</script> 

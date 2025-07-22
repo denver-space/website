@@ -1,0 +1,695 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="The Space Membership Application">
+  <main class="max-w-2xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-8">The Space Membership Application</h1>
+
+    <form class="space-y-10" method="POST">
+      <!-- Personal Information -->
+      <section class="space-y-8">
+        <div class="grid grid-cols-1 gap-8">
+          <div>
+            <label for="name" class="block text-sm font-medium">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Enter your answer"
+              class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 placeholder:text-gray-300"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="Enter your answer"
+              class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 placeholder:text-gray-300"
+            />
+          </div>
+
+          <div>
+            <label for="telegram" class="block text-sm font-medium">Telegram</label>
+            <input
+              type="text"
+              id="telegram"
+              name="telegram"
+              class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+            />
+          </div>
+
+          <div>
+            <label for="x_twitter" class="block text-sm font-medium">X</label>
+            <input
+              type="text"
+              id="x_twitter"
+              name="x_twitter"
+              class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+              placeholder="@username"
+            />
+          </div>
+
+          <div>
+            <label for="nostr" class="block text-sm font-medium">nostr</label>
+            <input
+              type="text"
+              id="nostr"
+              name="nostr"
+              class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+            />
+          </div>
+
+          <div>
+            <label for="preferred_contact_method" class="block text-sm font-medium">Preferred Contact Method *</label>
+            <select
+              id="preferred_contact_method"
+              name="preferred_contact_method"
+              required
+              class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+            >
+              <option value="">Select preferred contact method</option>
+              <option value="email">Email</option>
+              <option value="telegram">Telegram</option>
+              <option value="x">X</option>
+              <option value="nostr">nostr</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium">What are your primary goals for joining? (Select all that apply)*</label>
+            <div class="mt-2 space-y-2">
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="primary_goals[]"
+                  value="networking_and_socialization"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Networking and socialization</span>
+              </label>
+              
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="primary_goals[]"
+                  value="access_to_workspace"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Access to Workspace</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="primary_goals[]"
+                  value="attending_events"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Attending Events</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="primary_goals[]"
+                  value="learning_and_building"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Learning and Building</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="primary_goals[]"
+                  value="collaboration_opportunities"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Collaboration Opportunities</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="primary_goals[]"
+                  value="other"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Other</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium">What services are you most interested in? (Select all that apply)*</label>
+            <div class="mt-2 space-y-2">
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="primary_services[]"
+                  value="coworking_or_hangout_space"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Coworking or hangout space</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="primary_services[]"
+                  value="dedicated_office_and_meeting_space"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Dedicated office and meeting space</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="primary_services[]"
+                  value="events_seminars_and_workshops"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Events, seminars and workshops</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="primary_services[]"
+                  value="community_resources"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Community resources</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="primary_services[]"
+                  value="builder_amenities"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Builder amenities</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="primary_services[]"
+                  value="other"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Other</span>
+              </label>
+            </div>
+          </div>
+
+
+          <div>
+            <label class="block text-sm font-medium">What events are you interested in attending? (Select all that apply)*</label>
+            <div class="mt-2 space-y-2">
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="events[]"
+                  value="member_exclusive_social"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Member-exclusive social events</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="events[]"
+                  value="technical_workshops"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Hands on technical workshops</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="events[]"
+                  value="education_seminars"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Educational presentations and seminars</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="events[]"
+                  value="bitcoin_only"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Bitcoin events only</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="events[]"
+                  value="bitcoin_adjacent"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Bitcoin adjacent events (freedom tech, sovereignty, etc ...)</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="events[]"
+                  value="other"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                />
+                <span class="ml-2 text-sm">Other</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label for="other_interests" class="block text-sm font-medium">What other services, events, courses or amenities are you interested in The Space providing?</label>
+            <textarea
+              id="other_interests"
+              name="other_interests"
+              rows="4"
+              placeholder="Enter your answer"
+              class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 placeholder:text-gray-300"
+            ></textarea>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium">Which of our core values resonate most with you? (Select your top three)*</label>
+            <div class="mt-2 space-y-2">
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="core_values[]"
+                  value="individualism"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  onclick="limitSelections(this)"
+                />
+                <span class="ml-2 text-sm">Individualism</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="core_values[]"
+                  value="voluntary_association"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  onclick="limitSelections(this)"
+                />
+                <span class="ml-2 text-sm">Voluntary Association</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="core_values[]"
+                  value="right_to_privacy"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  onclick="limitSelections(this)"
+                />
+                <span class="ml-2 text-sm">Right to Privacy</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="core_values[]"
+                  value="software_is_speech"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  onclick="limitSelections(this)"
+                />
+                <span class="ml-2 text-sm">Software is Speech</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="core_values[]"
+                  value="proof_of_work"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  onclick="limitSelections(this)"
+                />
+                <span class="ml-2 text-sm">Proof-of-Work</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="core_values[]"
+                  value="meritocracy"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  onclick="limitSelections(this)"
+                />
+                <span class="ml-2 text-sm">Meritocracy</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="core_values[]"
+                  value="curiosity"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  onclick="limitSelections(this)"
+                />
+                <span class="ml-2 text-sm">Curiosity</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="core_values[]"
+                  value="courage"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  onclick="limitSelections(this)"
+                />
+                <span class="ml-2 text-sm">Courage</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="core_values[]"
+                  value="authenticity"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  onclick="limitSelections(this)"
+                />
+                <span class="ml-2 text-sm">Authenticity</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label for="bitcoin_competence" class="block text-sm font-medium">The Space is focused on Bitcoin only. No distractions. How would you describe your level of understanding of Bitcoin? *</label>
+            <select
+              id="bitcoin_competence"
+              name="bitcoin_competence"
+              required
+              class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+            >
+              <option value="">Select your answer</option>
+              <option value="boating_accident">Lost it all in a boating accident</option>
+              <option value="basic_knowledge">I know a bit and want to continue my education</option>
+              <option value="limited_understanding">Limited understanding but am open minded</option>
+              <option value="wrong_place">I like alt coins and think I'm in the wrong place</option>
+            </select>
+          </div>
+
+          <script>
+            function limitSelections(checkbox: HTMLInputElement) {
+              const checkboxes = document.querySelectorAll<HTMLInputElement>('input[name="core_values[]"]');
+              const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+              
+              if (checkedCount > 3) {
+                checkbox.checked = false;
+              }
+
+              // Validate on form submission
+              checkbox.closest('form')!.onsubmit = function(e) {
+                if (Array.from(checkboxes).filter(cb => cb.checked).length !== 3) {
+                  alert('Please select exactly three core values');
+                  e.preventDefault();
+                  return false;
+                }
+                return true;
+              };
+            }
+          </script>
+        </div>
+        <div>
+            <label for="contributions" class="block text-sm font-medium">How do you plan to contribute to our community and uphold our principles and values?</label>
+            <textarea
+              id="contributions"
+              name="contributions"
+              rows="4"
+              placeholder="Enter your answer"
+              class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 placeholder:text-gray-300"
+            ></textarea>
+          </div>
+          <div>
+            <label for="existing_bitcoin_projects" class="block text-sm font-medium">Are you working on any Bitcoin project or ideas? Do you work for a Bitcoin company? Do you think The Space can help support your endeavor? Please describe.</label>
+            <textarea
+              id="existing_bitcoin_projects"
+              name="existing_bitcoin_projects"
+              rows="4"
+              placeholder="Enter your answer"
+              class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 placeholder:text-gray-300"
+            ></textarea>
+          </div>
+          <div>
+            <label for="additional_info" class="block text-sm font-medium">Please provide any additional information or comments that you think are relevant to your application.</label>
+            <textarea
+              id="additional_info"
+              name="additional_info"
+              rows="4"
+              placeholder="Enter your answer"
+              class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 placeholder:text-gray-300"
+            ></textarea>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-4">Please choose your desired membership option*</label>
+            <div class="space-y-4">
+              <label class="flex items-start p-4 border-2 border-gray-300 rounded-md hover:border-primary-500">
+                <input
+                  type="radio"
+                  name="membership_option"
+                  value="social_membership"
+                  required
+                  class="mt-1 border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  style="margin-right: 10px; width: 16px !important; height: 16px !important; border-radius: 50% !important;"
+                />
+                <div>
+                  <span class="block font-medium">Social Membership ($150/mo)</span>
+                  <span class="block text-sm text-gray-600 mt-1">
+                    Access to building on weekdays after 4 PM and all weekend. Co-working: 5 drop-in days per month. 
+                    Bring a guest: 5 times a month.  See membership pricing page for more details.
+                  </span>
+                </div>
+              </label>
+
+              <label class="flex items-start p-4 border-2 border-gray-300 rounded-md hover:border-primary-500">
+                <input
+                  type="radio"
+                  name="membership_option"
+                  value="co-working_membership"
+                  required
+                  class="mt-1 border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  style="margin-right: 10px; width: 16px !important; height: 16px !important; border-radius: 50% !important;"
+                />
+                <div>
+                  <span class="block font-medium">Co-working Membership ($300/mo)</span>
+                  <span class="block text-sm text-gray-600 mt-1">
+                    24/7 building access. Unlimited co-working. Drop in anytime. Unlimited guest passes.  See membership pricing page for more details.
+                  </span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+
+
+          <div>
+            <label class="block text-sm font-medium">How did you hear about The Space? (select all that apply)*</label>
+            <div class="mt-2 space-y-2">
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="space_awareness[]"
+                  value="word_of_mouth"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  style="border: 2px solid rgb(239, 68, 68);"
+                />
+                <span class="ml-2 text-sm">Word of mouth</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="space_awareness[]"
+                  value="social_media"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  style="border: 2px solid rgb(239, 68, 68);"
+                />
+                <span class="ml-2 text-sm">Social media</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="space_awareness[]"
+                  value="online_search"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  style="border: 2px solid rgb(239, 68, 68);"
+                />
+                <span class="ml-2 text-sm">Online search</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="space_awareness[]"
+                  value="event"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  style="border: 2px solid rgb(239, 68, 68);"
+                />
+                <span class="ml-2 text-sm">Event</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="space_awareness[]"
+                  value="advertisement"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  style="border: 2px solid rgb(239, 68, 68);"
+                />
+                <span class="ml-2 text-sm">Advertisement</span>
+              </label>
+
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="space_awareness[]"
+                  value="other"
+                  class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                  style="border: 2px solid rgb(239, 68, 68);"
+                />
+                <span class="ml-2 text-sm">Other</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label for="referral" class="block text-sm font-medium">Were you referred by anyone in The Space? Please list only one name.</label>
+            <input
+              type="text"
+              id="referral"
+              name="referral"
+              placeholder="Enter your answer"
+              class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 placeholder:text-gray-300"
+            />
+          </div>
+
+
+
+
+          <div>
+            <label for="shirt_size" class="block text-sm font-medium">Shirt Size</label>
+            <select
+              id="shirt_size"
+              name="shirt_size"
+              class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+            >
+              <option value="">Select your answer</option>
+              <option value="XS">XS</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
+            </select>
+          </div>
+
+          
+
+          <div>
+            <label class="flex items-center">
+              <input
+                type="checkbox"
+                name="consent"
+                required
+                class="rounded border-2 border-gray-300 text-primary-600 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                style="border: 2px solid rgb(239, 68, 68);"
+              />
+              <span class="ml-2 text-sm">
+                Consent and Policies*
+              </span>
+            </label>
+            <span class="block mt-1 text-sm text-gray-500">
+              I adhere to The Space's Member Handbook Terms and Building Code of Conduct (see resources page on website) and certify the provided information is true and complete to the best of my knowledge.
+            </span>
+          </div>
+
+      </section>
+
+      <div class="flex justify-center">
+        <button
+          type="submit"
+          class="px-8 py-2 bg-transparent text-red-500 border-2 border-red-500 rounded-md hover:bg-red-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </main>
+</Layout>
+
+<style>
+  /* Add any custom styles here */
+  :root {
+    --primary-500: #3b82f6;
+    --primary-600: #2563eb;
+    --primary-700: #1d4ed8;
+  }
+</style> 
+
+<script>
+  document.querySelector('form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    
+    // Convert form data to object
+    const data = Object.fromEntries(
+      Array.from(formData.entries()).map(([key, value]) => {
+        // Handle array inputs (checkboxes with [])
+        if (key.endsWith('[]')) {
+          const arrayKey = key.slice(0, -2);
+          return [arrayKey, formData.getAll(key)];
+        }
+        // Handle consent checkbox - convert to boolean
+        if (key === 'consent') {
+          return [key, true];  // if it exists in formData, it's checked
+        }
+        return [key, value];
+      })
+    );
+
+    try {
+      const response = await fetch('/api/membership-application', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        // Redirect to success page
+        window.location.href = '/member_app_success';
+      } else {
+        alert(result.message || 'Error submitting application');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error submitting application');
+    }
+  });
+</script> 

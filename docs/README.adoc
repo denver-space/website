@@ -1,0 +1,51 @@
+= local dev notes
+
+
+-----
+$ curl -X GET \
+  -H "Authorization: Basic $(echo -n "admin:ad4e3363e438816679755615cefb4e683dced17b59be12e9" | base64)" \
+  -H "OCS-APIRequest: true" \
+  -H "Content-Type: application/json" \
+  http://nextcloud.dspace:11000/apps/forms
+-----
+
+
+-----
+curl -X POST -H 'Content-Type: application/json' \
+    http://nextcloud.dspace:11000/ocs/v2.php/apps/forms/api/v3/forms/6/submissions \
+    -d '{"answers":{"21":["jbride_name"],"22":["jbride2000@gmail.com"],"23":["jbride_telegram"],"24":["jbride_twitter"],"25":["jbride_nostr"],"26":["11"],"27":["18","19","17"],"28":["20","23","25"],"29":["29","31"],"30":["jbride_other_interested_services"],"31":["32","33","34"],"32":["42"],"33":["jbride_contributions"],"34":["jbride_current_projects"],"35":["jbride_additional_commets"],"36":["46"],"39":["53","54","56"],"40":["jbride_reference"],"41":["61"],"44":["65"]},"shareHash":"Q7jjZ6eRtoMgmGgbY49mSa7j"}'
+-----
+
+-----
+curl -X POST -H 'Content-Type: application/json' \
+    http://nextcloud.dspace:11000/ocs/v2.php/apps/forms/api/v3/forms/6/submissions \
+    -d '{"answers":{"21":["jbride_test_name"],"22":["jbride2000@gmail.com"],"23":["jbride_telegram"],"24":["jbride_twitter"],"25":["jbride_nostr"],"26":["11"],"27":["18","19","17"],"28":["20","23","25"],"29":["29","31"],"30":["jbride_other_interested_services"],"31":["32","33","34"],"32":["42"],"33":["jbride_contributions"],"34":["jbride_current_projects"],"35":["jbride_additional_commets"],"36":["46"],"39":["53","54","56"],"40":["jbride_reference"],"41":["61"],"44":["65"]},"shareHash":"Q7jjZ6eRtoMgmGgbY49mSa7j"}'
+-----
+
+-----
+$ curl -X POST \
+  http://localhost:4321/api/membership-application \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "Test User",
+    "email": "test@example.com",
+    "preferred_contact_method": "email",
+    "primary_goals": ["networking", "workspace", "events"],
+    "primary_services": ["coworking", "events", "community"],
+    "events": ["social", "technical", "educational"],
+    "core_values": ["privacy", "curiosity", "courage"],
+    "bitcoin_competence": "continuing_education",
+    "membership_option": "social",
+    "space_awareness": ["word_of_mouth", "social_media"],
+    "consent": true,
+    "telegram": "@testuser",
+    "x_twitter": "@testuser",
+    "nostr": "npub123...",
+    "other_interests": "Interested in hosting workshops",
+    "contributions": "I can help with technical workshops",
+    "existing_bitcoin_projects": "Working on a Lightning app",
+    "additional_info": "Looking forward to joining!",
+    "referral": "Satoshi",
+    "shirt_size": "L"
+  }'
+-----

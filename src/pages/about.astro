@@ -1,0 +1,736 @@
+---
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Link from "@components/ui/link.astro";
+
+const publishedVolunteers = await getCollection("volunteers", ({ data }) => {
+  return !data.draft && new Date(data.publishDate) < new Date();
+});
+
+const values = [
+  { title: "Individualism", description: "We embrace the uniqueness of each individual.", icon: "bx:bxs-user" },
+  { title: "Voluntary Association", description: "Participation by choice, not coercion.", icon: "bx:bxs-group" },
+  { title: "Privacy", description: "Privacy is a fundamental right essential for freedom.", icon: "simple-icons:privateinternetaccess" },
+  { title: "Software is Speech", description: "Champion free speech and FOSS as the foundation of a free society.", icon: "bx:code" },
+  { title: "Proof-of-Work", description: "We reward and support actions that improve the human condition.", icon: "uil:wrench" },
+  { title: "Meritocracy", description: "Recognition based on individual effort and achievement.", icon: "bx:bxs-trophy" },
+  { title: "Curiosity", description: "The innate desire for knowledge forwards the human condition.", icon: "bx:question-mark" },
+  { title: "Courage", description: "We promote actions driven by courage, not fear, to achieve positive outcomes.", icon: "bx:bxs-microphone" },
+  { title: "Authenticity", description: "We value sincerity and originality in our actions.", icon: "bx:bxl-discourse" },
+];
+---
+
+<style>
+  body, html {
+    overflow-x: hidden;
+  }
+
+  .volunteer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .volunteer-container .volunteer {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .volunteer-container img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .volunteer-section {
+    padding-top: 0;
+    margin-top: -20px;
+  }
+
+  .volunteer-section h2, .volunteer-section p {
+    margin-bottom: 20px;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgb(0, 0, 0);
+    background-color: #131313;
+    padding: 0.5rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    background-color: transparent;
+  }
+
+  th, td {
+    border: 2px solid #000000;
+    padding: 10px;
+    text-align: center;
+    background-color: #131313;
+    color: #fff;
+    width: 14.2857%;
+    position: relative;
+  }
+
+  th {
+    background-color: #131313;
+  }
+
+  .checkmark::before {
+    content: "✓";
+    color: #bebebe;
+    font-size: 20px;
+  }
+
+  .dash::before {
+    content: "—";
+    color: #a4a4a4;
+    font-size: 20px;
+  }
+
+  .cross::before {
+    content: "✗";
+    color: #6d6d6d;
+    font-size: 20px;
+  }
+
+  .custom-logo {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('/assets/branding/Logos/TheSpace_Logos_Symbol_2.webp') no-repeat center center;
+    background-size: contain;
+  }
+
+  @media (max-width: 768px) {
+    th, td {
+      padding: 5px;
+      font-size: 12px;
+    }
+
+    .checkmark::before, .dash::before, .cross::before {
+      font-size: 15px;
+    }
+
+    .vision-grid, .process-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    th, td {
+      padding: 1px;
+      font-size: 10px;
+    }
+
+    .checkmark::before, .dash::before, .cross::before {
+      font-size: 12px;
+    }
+  }
+
+  .list-custom {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .list-custom li {
+    padding-left: 50px;
+    position: relative;
+    margin-top: 1rem;
+    text-align: left;
+  }
+
+  .list-custom li:nth-child(1)::before {
+    content: "";
+    background: url('/assets/branding/Logos/TheSpace_Logos_Number_1.webp') no-repeat center center;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .list-custom li:nth-child(2)::before {
+    content: "";
+    background: url('/assets/branding/Logos/TheSpace_Logos_Number_2.webp') no-repeat center center;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .list-custom li:nth-child(3)::before {
+    content: "";
+    background: url('/assets/branding/Logos/TheSpace_Logos_Number_3.webp') no-repeat center center;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .vision-grid, .process-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .vision-textbox, .process-textbox {
+    background-color: #131313;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgb(0, 0, 0);
+    color: white;
+  }
+
+  .vision-card, .process-card {
+    background-color: #131313;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgb(0, 0, 0);
+    color: white;
+  }
+
+  .link-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .link-button {
+    flex: 1;
+    color: #000000;
+    text-decoration: none;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem 0;
+  }
+
+    .link-button:hover {
+    background-color: #d8d8d8;
+    color: rgb(0, 0, 0);
+  }
+
+  /* Roadmap Styles */
+  .roadmap-section {
+    position: relative;
+  }
+
+  .roadmap-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .roadmap-step {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin: 1rem auto;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  /* Snaking layout for larger screens */
+  @media (min-width: 768px) {
+    .roadmap-step {
+      max-width: 800px;
+    }
+
+    /* Odd steps - align left */
+    .roadmap-step:nth-child(odd) {
+      margin-right: auto;
+      margin-left: 0;
+    }
+
+    /* Even steps - align right with reversed layout */
+    .roadmap-step:nth-child(even) {
+      margin-left: auto;
+      margin-right: 0;
+      flex-direction: row-reverse;
+    }
+
+    /* Adjust circle margin for reversed steps */
+    .roadmap-step:nth-child(even) .step-circle {
+      margin-right: 0;
+      margin-left: 2rem;
+    }
+  }
+
+  .roadmap-step:nth-child(odd) {
+    animation-delay: calc(var(--step) * 0.2s);
+  }
+
+  .roadmap-step:nth-child(even) {
+    animation-delay: calc(var(--step) * 0.2s + 0.1s);
+  }
+
+  .roadmap-step[data-step="1"] { --step: 1; }
+  .roadmap-step[data-step="2"] { --step: 2; }
+  .roadmap-step[data-step="3"] { --step: 3; }
+  .roadmap-step[data-step="4"] { --step: 4; }
+  .roadmap-step[data-step="5"] { --step: 5; }
+  .roadmap-step[data-step="6"] { --step: 6; }
+  .roadmap-step[data-step="7"] { --step: 7; }
+  .roadmap-step[data-step="8"] { --step: 8; }
+  .roadmap-step[data-step="9"] { --step: 9; }
+  .roadmap-step[data-step="10"] { --step: 10; }
+
+  .step-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E51F5D, #F68830);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2rem;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(229, 31, 93, 0.3);
+  }
+
+  .step-number {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .step-content {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .step-title {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-description {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .step-description p {
+    color: #1F2937;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    padding-top: 0.5rem;
+  }
+
+  /* Hover Effects */
+  .roadmap-step:hover .step-circle {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(229, 31, 93, 0.5);
+  }
+
+  .roadmap-step:hover .step-content {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(229, 31, 93, 0.5);
+    transform: translateX(10px);
+  }
+
+  .roadmap-step:hover .step-description {
+    max-height: 100px;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .roadmap-step {
+      max-width: 100% !important;
+      margin: 1rem auto !important;
+      flex-direction: row !important;
+    }
+
+    .step-circle {
+      width: 60px;
+      height: 60px;
+      margin-right: 1rem !important;
+      margin-left: 0 !important;
+    }
+
+    .step-number {
+      font-size: 1.25rem;
+    }
+
+    .step-title {
+      font-size: 1.1rem;
+    }
+
+    .step-content {
+      padding: 1rem;
+    }
+
+    .roadmap-step:hover .step-content {
+      transform: none;
+    }
+  }
+</style>
+
+<Layout title="About Us">
+  <Container>
+    <section class="flex flex-col mt-28 mb-36 items-center lg:space-y-7">
+      <img 
+        src="/assets/branding/Logos/TheSpace_Logos_Full_3crop.webp" 
+        alt="Logo Glitch Gif" 
+        loading="lazy" 
+        class="w-full lg:w-11/12 rounded-lg" 
+        style="box-shadow: none;"
+        width="1200"
+        height="600"
+      />
+    </section>
+    <Sectionhead>
+      <Fragment slot="title">About The Space</Fragment>
+      <Fragment slot="desc">
+        <p class="text-lg mt-4 text-slate-600 px-0 md:px-4 lg:px-10">
+          The Space is a bitcoin citadel and community hub located in Denver, CO. <br/>
+        </p>
+        <p class="text-lg mt-4 text-left md:text-justify text-slate-600 px-0 md:px-4 lg:px-10">
+          Our organization is dedicated to freedom and bitcoin initiatives. We offer a place for those in The Space to learn, connect, work and socialize.
+          Join us for our events, presentations, workshops, and more. Enter The Space!
+        </p>
+      </Fragment>
+    </Sectionhead>
+
+    <div class="px-0">
+      <h2 class="mt-28 mb-4 text-4xl text-center font-bold text-black">Something Unique</h2>
+      <div class="overflow-auto mt-0 mb-8 px-0 table-wrapper">
+        <table class="unique-table mx-auto">
+          <thead>
+            <tr>
+              <th></th>
+              <th>The Space</th>
+              <td>Bitcoin Hubs</td>
+              <td>Aligned Orgs</td>
+              <td>Social Clubs</td>
+              <td>Coworking Spots</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Education</td>
+              <td><span class="custom-logo"></span></td>
+              <td class="checkmark"></td>
+              <td class="checkmark"></td>
+              <td class="cross"></td>
+              <td class="cross"></td>
+            </tr>
+            <tr>
+              <td>Social Hub</td>
+              <td><span class="custom-logo"></span></td>
+              <td class="checkmark"></td>
+              <td class="checkmark"></td>
+              <td class="checkmark"></td>
+              <td class="cross"></td>
+            </tr>
+            <tr>
+              <td>Defined Mission</td>
+              <td><span class="custom-logo"></span></td>
+              <td class="checkmark"></td>
+              <td class="checkmark"></td>
+              <td class="cross"></td>
+              <td class="cross"></td>
+            </tr>
+            <tr>
+              <td>Events</td>
+              <td><span class="custom-logo"></span></td>
+              <td class="checkmark"></td>
+              <td class="dash"></td>
+              <td class="dash"></td>
+              <td class="dash"></td>
+            </tr>
+            <tr>
+              <td>Coworking</td>
+              <td><span class="custom-logo"></span></td>
+              <td class="checkmark"></td>
+              <td class="cross"></td>
+              <td class="cross"></td>
+              <td class="checkmark"></td>
+            </tr>
+            <tr>
+              <td>Member Run</td>
+              <td><span class="custom-logo"></span></td>
+              <td class="cross"></td>
+              <td class="cross"></td>
+              <td class="dash"></td>
+              <td class="cross"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="vision-grid px-0">
+        <div class="vision-textbox">
+          <h2 class="text-4xl font-bold">Model</h2>
+          <p class="mt-4 text-lg">
+            The Space is member-run. An annual member vote is held to elect the Board of Directors.
+            The Board selects officers with extensive responsibilities and advocates on behalf of the members.<br/><br/>
+            Our unique member-run model and open source organization blueprint is available for anyone looking to build a physical bitcoin citadel in their community.
+          </p>
+          <a href="/resources" class="mt-4 inline-block text-lg text-blue-500 hover:underline">Learn more from our Resources and FAQ page</a>
+        </div>
+        <div class="vision-card">
+          <h2 class="text-4xl font-bold">Vision</h2>
+          <ul class="list-custom mx-auto max-w-1xl mt-10 text-lg">
+            <li>An organization with global influence, advancing freedom in the digital age.</li>
+            <li>A community of outstanding individuals and organizations aligned with our principles and values.</li>
+            <li>The premier place to educate, collaborate, network, work and support creative development in the bitcoin space.</li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="mt-28">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-28">Our Values</h2>
+        <p class="text-lg mt-4 text-slate-600">What we stand for:</p>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 mb-6 gap-16">
+          {values.map((item) => (
+            <div class="flex gap-4 items-start">
+              <div class="mt-1 bg-black rounded-full p-2 w-8 h-8 shrink-0">
+                <Icon class="text-white" name={item.icon} />
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg">{item.title}</h3>
+                <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </Container>
+
+  <div class="custom-gradient py-12 mt-20">
+    <section class="text py-0 text-center max-w-screen-lg mx-auto px-2 md:px-8 lg:px-0">
+      <section class="flex flex-col mt-24 mb-24 items-center lg:space-y-7">
+        <img 
+          src="/assets/branding/Logos/TheSpace_Logos_Ring_2crop.webp" 
+          alt="Logo Image" 
+          loading="lazy" 
+          class="w-full lg:w-11/12 rounded-lg" 
+          style="box-shadow: none;"
+          width="1200"
+          height="600"
+        />
+      </section>
+    </section>
+
+    <!-- The Process Section - Full Width -->
+    <div class="w-full mb-24 px-5 md:px-8 lg:px-12">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl text-white font-bold">The Process</h2>
+        <p class="text-lg mt-4 text-white">How we built The Space from idea to reality</p>
+      </div>
+      <div class="max-w-4xl mx-auto">
+        <div class="roadmap-section mt-4">
+          <div class="roadmap-container">
+            <div class="roadmap-step" data-step="1">
+              <div class="step-circle">
+                <span class="step-number">1</span>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Community Building</h3>
+                <div class="step-description">
+                  <p>Establishing a Movement and Building Relationships</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="roadmap-step" data-step="2">
+              <div class="step-circle">
+                <span class="step-number">2</span>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Draft Documents</h3>
+                <div class="step-description">
+                  <p>Mission, Values, Bylaws & Incorporation</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="roadmap-step" data-step="3">
+              <div class="step-circle">
+                <span class="step-number">3</span>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Initial Infrastructure</h3>
+                <div class="step-description">
+                  <p>Set up Treasury and Initial Infrastructure</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="roadmap-step" data-step="4">
+              <div class="step-circle">
+                <span class="step-number">4</span>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Founding Event</h3>
+                <div class="step-description">
+                  <p>Block Height, Elections & First Members</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="roadmap-step" data-step="5">
+              <div class="step-circle">
+                <span class="step-number">5</span>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Operational Setup</h3>
+                <div class="step-description">
+                  <p>Nonprofit Filing & Operational Setup</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="roadmap-step" data-step="6">
+              <div class="step-circle">
+                <span class="step-number">6</span>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">FOSS Infrastructure</h3>
+                <div class="step-description">
+                  <p>Self Hosted Server and FOSS Infrastructure Build Out</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="roadmap-step" data-step="7">
+              <div class="step-circle">
+                <span class="step-number">7</span>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Planning Events</h3>
+                <div class="step-description">
+                  <p>Committees, Curriculum Planning & Preliminary Events</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="roadmap-step" data-step="8">
+              <div class="step-circle">
+                <span class="step-number">8</span>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Sponsor Outreach</h3>
+                <div class="step-description">
+                  <p>Partnership & Founding Sponsor Outreach</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="roadmap-step" data-step="9">
+              <div class="step-circle">
+                <span class="step-number">9</span>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Real Estate</h3>
+                <div class="step-description">
+                  <p>Real Estate Scouting, Furnishing and Building Prep</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="roadmap-step" data-step="10">
+              <div class="step-circle">
+                <span class="step-number">10</span>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Launch Week</h3>
+                <div class="step-description">
+                  <p>Lease Signed, Opening Event & Launch Week</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="volunteer-section text-center bg-black py-10">
+    <h2 class="mt-20 text-4xl font-bold text-white">Founding Volunteers</h2>
+    <p class="mt-4 px-10 text-center text-gray-200">Cheers to all the amazing bitcoiners across the Rocky Mountain region who helped bring this together.</p>
+    <div class="mt-20 volunteer-container">
+      {publishedVolunteers.map((volunteerEntry) => (
+        <div class="volunteer mt-4">
+          <img 
+            src={volunteerEntry.data.avatar.src} 
+            alt={volunteerEntry.data.avatar.alt} 
+            loading="lazy" 
+            class="h-24 w-24 object-cover rounded-full border-2 border-white shadow-md"
+            width="96"
+            height="96"
+          />
+          <p class="text-white mt-2">{volunteerEntry.data.name}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Get Involved Section -->
+    <div class="mt-16 mb-4 mx-auto max-w-4xl px-5">
+      <div class="text-center">
+        <h2 class="text-4xl font-bold text-white mb-6">Get Involved</h2>
+        <p class="text-lg text-gray-200 mb-8">
+          Want to be a part of our journey? <br/>Explore different ways to get involved.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Link href="/membership" block style="inverted" class="flex items-center justify-center">Become a Member</Link>
+          <Link href="/sponsors" block style="inverted" class="flex items-center justify-center">Support Us</Link>
+          <Link href="https://donate.denver.space" target="_blank" block style="inverted" class="flex items-center justify-center">Donate</Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

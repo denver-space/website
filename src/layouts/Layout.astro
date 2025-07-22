@@ -1,0 +1,133 @@
+---
+import { SEO } from "astro-seo";
+import Footer from "@components/footer.astro";
+import Navbar from "@components/navbar/navbar.astro";
+import "../styles/common.css";
+
+export interface Props {
+  title: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const resolvedImageWithDomain = new URL(
+  "/opengraph.webp",
+  Astro.site
+).toString();
+
+const { title } = Astro.props;
+
+const makeTitle = title
+  ? title + " | " + "The Space"
+  : "The Space - Denver's Premier Bitcoin Venue";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Preload critical font for better performance -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+
+    <SEO
+      title={makeTitle}
+      description="The Space is Denver's Premier Bitcoin community hub, event location, and coworking center."
+      canonical={canonicalURL}
+      twitter={{
+        creator: "@spacedenver",
+        site: "@spacedenver",
+        card: "summary_large_image",
+      }}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: `The Space - Denver's Premier Bitcoin Citadel`,
+          image: resolvedImageWithDomain,
+        },
+        image: {
+          alt: "The Space Logo",
+        },
+      }}
+    />
+    
+    <!-- Google analytics tag (gtag.js) -->
+    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-5QSSGYQY77"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5QSSGYQY77');
+    </script>
+
+    <script defer src="https://umami.denver.space/script.js" data-website-id="9814fb50-2e96-4288-b526-61bf8c634bf9"></script>
+
+  </head>
+  <body class="min-h-screen flex flex-col bg-white">
+    <!-- Navbar with proper spacing -->
+    <div class="container mx-auto px-4">
+      <Navbar />
+    </div>
+    <!-- Main content area -->
+    <main class="flex-grow mt-0"> <!-- Added margin-top to reduce spacing -->
+      <slot />
+    </main>
+    <!-- Footer area -->
+    <Footer />
+
+    <style is:global>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: visible;
+      }
+      /* Ensure the footer is always at the bottom and the background is black */
+      body {
+        background-color: white;
+      }
+      footer {
+        background-color: black;
+      }
+      /* Additional styles to prevent margin collapse */
+      main {
+        display: flex;
+        flex-direction: column;
+      }
+      /* Reduce spacing between navbar and header */
+      header {
+        margin-top: 0;
+        padding-top: 0;
+      }
+      
+      /* Updated form styles */
+      input[type="checkbox"], input[type="radio"] {
+        accent-color: rgb(239 68 68) !important; /* red-500 */
+        border-color: rgb(239 68 68) !important;
+        border-width: 1px !important;
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        outline: 1px solid rgb(239 68 68) !important;
+        outline-offset: 0px !important;
+        width: 1rem !important;
+        height: 1rem !important;
+        background-color: white !important;
+        cursor: pointer !important;
+        position: relative !important;
+      }
+
+      input[type="checkbox"]:checked, input[type="radio"]:checked {
+        background-color: rgb(239 68 68) !important;
+      }
+
+      input[type="radio"] {
+        border-radius: 50% !important;
+      }
+    </style>
+  </body>
+</html>

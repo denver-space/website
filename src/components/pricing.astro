@@ -1,0 +1,39 @@
+---
+import { Tick } from "@components/ui/icons";
+import Link from "@components/ui/link.astro";
+
+const { plan } = Astro.props;
+const isComingSoon = plan.name !== "Public" && plan.name !== "Social" && plan.name !== "Co-Working" && plan.name !== "Monthly Supporter" && plan.name !== "Become a Sponsor" && plan.name !== "Day Pass" && plan.name !== "Private Office";
+const isMainOption = plan.name === "Social" || plan.name === "Co-Working" || plan.name === "Private Office";
+const isSponsorCard = plan.name === "Become a Sponsor";
+const isLowerTier = ["Public", "Day Pass", "Monthly Supporter"].includes(plan.name);
+---
+
+<div class="flex flex-col h-full min-h-full">
+  <div class={`flex flex-col w-full h-full order-first lg:order-none border-4 border-[#ffffff] py-10 px-6 rounded-md relative ${isLowerTier ? 'bg-[#ffffff] border-[#ffffff]' : isSponsorCard || isMainOption ? 'bg-gradient' : 'bg-[#D9314A] border-[#000000]'}`} style={`min-height: ${isSponsorCard ? '350px' : (isMainOption ? '450px' : '600px')}`}>
+    <div class={`absolute top-0 left-0 px-2 py-1 bg-blue-500 text-white rounded-br-md ${isComingSoon ? '' : 'hidden'}`}>Coming Soon</div>
+    <div class="text-center mb-8">
+      <h4 class={`text-lg font-medium ${isLowerTier ? 'text-black' : 'text-white'}`}>{plan.name}</h4>
+      <p class={`mt-3 text-4xl font-bold ${isLowerTier ? 'text-black' : 'text-white'} md:text-4xl`}>
+        {plan.price && typeof plan.price === "object" ? plan.price.monthly : plan.price}
+      </p>
+    </div>
+    <div class="flex-grow flex flex-col justify-start">
+      <ul class="space-y-4 mx-auto">
+        {plan.features.map((item) => (
+          <li class={`flex items-start gap-3 ${isLowerTier ? 'text-black' : 'text-white'}`}>
+            <div class="w-6 h-6 mt-1 flex-shrink-0">
+              <Tick class="w-6 h-6" />
+            </div>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="mt-8 flex justify-center">
+      <Link href={plan.button.link || "#"} block style={plan.popular ? "primary" : "outline"}>
+        {plan.button.text || "Get Started"}
+      </Link>
+    </div>
+  </div>
+</div>

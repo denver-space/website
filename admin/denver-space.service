@@ -1,0 +1,20 @@
+[Unit]
+Description=denver.space web site
+After=syslog.target network-online.target
+
+[Service]
+Environment="HOST=0.0.0.0"
+Environment="PORT=4321"
+WorkingDirectory=/home/space/The-Space/
+ExecStart=node ./dist/server/entry.mjs
+ExecStop=pkill -f node
+Restart=always
+RestartSec=1
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=denver-space
+User=space
+Group=users
+
+[Install]
+WantedBy=multi-user.target

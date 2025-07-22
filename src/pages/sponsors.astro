@@ -1,0 +1,187 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import PricingCard from "@components/pricing.astro";
+import Link from "@components/ui/link.astro"; // Ensure this import is here
+
+// Define the type for your sponsor entries
+type SponsorEntry = CollectionEntry<"sponsors">;
+
+const publishedSponsors: SponsorEntry[] = await getCollection("sponsors", ({ data }) => {
+  return !data.draft && new Date(data.publishDate) <= new Date();
+});
+
+// Sort sponsors by publish date (oldest to newest)
+publishedSponsors.sort((a, b) => {
+  const dateA = new Date(a.data.publishDate || "1970-01-01").getTime();
+  const dateB = new Date(b.data.publishDate || "1970-01-01").getTime();
+  return dateA - dateB;
+});
+
+// Separate sponsors based on the date (before and after 9/28/2024)
+const foundingSponsors = publishedSponsors.filter(sponsor => new Date(sponsor.data.publishDate) <= new Date('2024-09-28'));
+const newSponsors = publishedSponsors.filter(sponsor => new Date(sponsor.data.publishDate) > new Date('2024-09-28'));
+
+const sponsorPlan = {
+  name: "Become a Sponsor",
+  price: "Support The Mission",
+  popular: true,
+  features: [
+    "Host your Own Events & Presentations",
+    "Brand Recognition & Marketing",
+    "Association with The Space",
+    "Sell your Goods and Services",
+    "Bitcoin Community Involvement",
+    "Membership, Co-Working or Private Offices",
+    "Exclusive Talent Access",
+    "Your Ideas & more..."
+  ],
+  button: {
+    text: "Sponsor Us",
+    link: "/contact"
+  }
+};
+---
+
+<style>
+  .custom-gradient {
+    background: linear-gradient(135deg, #E51F5D, #F68830,#F5D54C, #FDE3B7);
+  }
+  .white-svg {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  }
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on large screens */
+    gap: 2rem; /* Increase the gap for more horizontal padding */
+    justify-items: center;
+  }
+  
+  .sponsor-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  @media (max-width: 800px) {
+    .sponsors-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+    }
+    .sponsors-grid img {
+      width: 80px; /* Adjust the size as needed */
+      height: 80px; /* Adjust the size as needed */
+    }
+    .order-1.md\:order-2 {
+      margin-bottom: 20px; /* Adjust the value as needed for the desired spacing */
+    }
+  }
+  @media (max-width: 1200px) and (min-width: 801px) {
+    .sponsors-grid img {
+      width: 120px; /* Adjust the size as needed */
+      height: 120px; /* Adjust the size as needed */
+    }
+  }
+  @media (min-width: 1201px) {
+    .sponsors-grid img {
+      width: 150px; /* Adjust the size as needed */
+      height: 150px; /* Adjust the size as needed */
+    }
+  }
+  @media (max-width: 800px) and (orientation: landscape) {
+    .sponsors-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns on landscape-oriented small screens */
+    }
+  }
+
+  /* Non-Founding Sponsors specific styles */
+  .non-founding-sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on larger screens */
+    gap: 2rem;
+    justify-items: center;
+  }
+  .smaller-sponsor-logo {
+    width: 100px;
+    height: 100px;
+  }
+  @media (max-width: 1024px) {
+    .non-founding-sponsors-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens like tablets */
+    }
+    .smaller-sponsor-logo {
+      width: 90px;
+      height: 90px;
+    }
+  }
+  @media (max-width: 600px) {
+    .smaller-sponsor-logo {
+      width: 80px;
+      height: 80px;
+    }
+  }
+</style>
+
+<Layout title="Sponsors">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Sponsors</Fragment>
+      <Fragment slot="desc">
+        The Space was made possible by Founding Sponsors, Members, and Donors. Reach out to get involved.
+      </Fragment>
+    </Sectionhead>
+
+    <!-- Founding Sponsors and Support Section -->
+    <div class="founding-sponsors-container grid md:grid-cols-1 lg:grid-cols-2 gap-6 mx-auto max-w-6xl mt-12 mb-12 px-4 lg:px-0">
+      <!-- Founding Sponsors Grid -->
+      <div class="order-2 md:order-1 flex flex-col gap-3">
+        <h2 class="font-bold text-center text-3xl mb-12 text-gray-800">Our Founding Support</h2>
+        <div class="sponsors-grid">
+          {foundingSponsors.map((sponsor) => (
+            <a href={sponsor.data.url} target="_blank" rel="noopener noreferrer" class="block">
+              <div class="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 mx-auto">
+                <img src={sponsor.data.avatar?.src || '/default-event-image.webp'}
+                  loading="lazy"
+                  alt={sponsor.data.avatar.alt || 'Sponsor Image'}
+                  class="sponsor-logo"
+                  width="192"
+                  height="192"
+                />
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Sponsor Us Tile -->
+      <div class="order-2 md:order-1 mt-12 md:mb-8 max-w-md mx-auto">
+        <PricingCard plan={sponsorPlan} />
+      </div>
+    </div>
+  
+    <!-- Donate to The Space Button -->
+    <div class="flex justify-center mt-0 mb-4">
+      <Link
+        size="lg"
+        style="outline"
+        rel="noopener"
+        href="https://donate.denver.space"
+        class="flex gap-3 items-center justify-center bg-[#D9314A] hover:bg-[#D9314A] text-black"
+        target="_blank"
+      >
+        <img 
+          src="/assets/branding/Logos/TheSpace_Logos_Symbol_3.webp" 
+          alt="Donate Icon" 
+          loading="lazy" 
+          class="w-7 h-7"
+          width="28"
+          height="28"
+        />
+        Donate to The Space
+      </Link>
+    </div>
+    <div class="flex justify-center mt-0 mb-20">
+  </Container>
+</Layout>

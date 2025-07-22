@@ -1,0 +1,117 @@
+---
+import Container from "@components/container.astro";
+import Link from "@components/ui/link.astro";
+import Dropdown from "./dropdown.astro";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+
+const menuitems = [
+  {
+    title: "About",
+    path: "/about",
+    badge: "",
+    children: [
+      { title: "The Space", path: "/about" },
+      { title: "Venue", path: "/venue" },
+      { title: "Team", path: "/team" },
+      { title: "Sponsors", path: "/sponsors" },
+    ],
+  },
+  {
+    title: "Content",
+    path: "/content",
+    badge: "",
+    children: [
+      { title: "YouTube", path: "https://www.youtube.com/@SpaceDenver/featured", target: "_blank" },
+      { title: "nostr", path: "https://nostr.com/npub1knvgqlkllgc566pxjkwrm33ks8k9nn6470a8y70t58jx6y3l620sj7lg29", target: "_blank" },
+      { title: "X", path: "https://x.com/SpaceDenver", target: "_blank" },
+    ],
+  },
+  {
+    title: "Events",
+    path: "/events",
+    badge: "",
+    children: [
+      { title: "Public Event Calendar", path: "/events" },
+      { title: "Bitcoin Financial Services Summit", path: "/bitcoin_financial_summit" },
+      { title: "Heatpunk Summit", path: "/heatpunk_summit" },
+      { title: "Bitcoin Week", path: "/bitcoinweek_ethdenver" },
+    ],
+  },
+  {
+    title: "Resources",
+    path: "/resources",
+  },
+  {
+    title: "Membership",
+    path: "/membership",
+  },
+  {
+    title: "Contact",
+    path: "/contact",
+  },
+];
+---
+
+<Container>
+  <header class="flex flex-col lg:flex-row justify-between items-center my-0">
+    <Astronav>
+      <div class="flex w-full lg:w-auto items-center justify-between">
+        <a href="/" class="text-lg flex items-center">
+          <img 
+            src="/assets/branding/Logos/TheSpace_Logos_Full_3.webp" 
+            alt="Logo" 
+            loading="eager" 
+            class="mr-2" 
+            style="width: 5.4rem; height: 5.4rem;"
+            width="86"
+            height="86"
+          />
+        </a>
+        <div class="block lg:hidden">
+          <MenuIcon class="w-4 h-4 text-gray-800" />
+        </div>
+      </div>
+      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
+        <ul class="flex flex-col lg:flex-row lg:gap-3">
+          {
+            menuitems.map((item, index) => (
+              <>
+                {item.children && (
+                  <Dropdown
+                    title={item.title}
+                    children={item.children}
+                    lastItem={index === menuitems.length - 1}
+                  />
+                )}
+
+                {!item.children && (
+                  <li>
+                    <a
+                      href={item.path}
+                      class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900"
+                    >
+                      <span> {item.title}</span>
+                      {item.badge && (
+                        <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
+                          New
+                        </span>
+                      )}
+                    </a>
+                  </li>
+                )}
+              </>
+            ))
+          }
+        </ul>
+        <div class="lg:hidden flex items-center mt-3 gap-4">
+          <Link href="https://nextcloud.denver.space/login?clear=1" size="md" block>Sign In</Link>
+        </div>
+      </MenuItems>
+    </Astronav>
+    <div>
+      <div class="hidden lg:flex items-center gap-4">
+        <Link href="https://nextcloud.denver.space/login?clear=1" size="md">Sign In</Link>
+      </div>
+    </div>
+  </header>
+</Container>

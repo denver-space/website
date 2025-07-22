@@ -1,0 +1,343 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Link from "@components/ui/link.astro";
+---
+
+<Layout title="Bitcoin Financial Summit">
+  <Container class="w-full">
+    <Sectionhead>
+      <Fragment slot="title">BITCOIN FOR FINANCIAL SERVICES SUMMIT</Fragment>
+      <Fragment slot="desc">
+        Where Bitcoin meets modern finance
+      </Fragment>
+    </Sectionhead>
+
+    <!-- Purchase Tickets -->
+    <div class="flex justify-center mt-12">
+      <Link href="https://pay.zaprite.com/pl_aKmt4yivzH" target="_blank" style="primary" size="lg">
+        Purchase Tickets - Limited to 150 Professionals
+      </Link>
+    </div>
+
+    <!-- Description Section -->
+    <div class="mt-16 px-4 md:px-4 lg:px-10">
+      <h2 class="text-4xl font-bold text-black mb-6">Overview</h2>
+      <p class="text-xl mt-4 text-left md:text-justify text-black leading-relaxed">
+        The Bitcoin for Financial Services Summit brings together the people who already move capital and advise clients so they can confidently deploy Bitcoin strategies. Over three days you will:
+      </p>
+      <ul class="list-disc pl-8 mt-6 text-black space-y-2">
+        <li class="text-lg">Hear what is working in the field today</li>
+        <li class="text-lg">See tomorrow's products before they ship</li>
+        <li class="text-lg">Build the relationships that turn ideas into revenue</li>
+      </ul>
+      <p class="text-xl mt-6 text-left md:text-justify text-black leading-relaxed font-semibold">
+        Reserve your spot now—limited to 150 forward-thinking professionals.
+      </p>
+    </div>
+
+    <!-- Summit Objectives Section -->
+    <div class="mt-16 px-4 md:px-4 lg:px-10">
+      <h2 class="text-4xl font-bold text-black mb-6">Summit Objectives</h2>
+      <ol class="list-decimal pl-8 mt-6 text-black space-y-3">
+        <li class="text-lg">Equip financial professionals with actionable Bitcoin knowledge</li>
+        <li class="text-lg">Spark partnerships that accelerate product & services development</li>
+        <li class="text-lg">Network with like-minded professionals</li>
+        <li class="text-lg">Discover qualified referral partners, products, and services to ensure your clients get the best Bitcoin experience possible</li>
+      </ol>
+    </div>
+
+    <!-- Date & Location Section -->
+    <div class="mt-10 bg-gradient p-8 rounded-lg shadow-lg px-4 md:px-4 lg:px-10">
+      <h2 class="text-3xl font-bold text-white mb-4">Dates & Times</h2>
+      <ul class="list-disc pl-5 mt-4 text-white">
+        <li class="text-white">Thursday, October 16 – Saturday, 18, 2025</li>
+        <li class="text-white">Golf on Thursday morning on the 16th starting at 10am</li>
+        <li class="text-white">Summit activities will start 10 AM MST Friday morning on the 17th. Feel free to arrive anytime after 8 AM for coffee and breakfast.</li>
+        <li class="text-white">We'll conclude a full day of summit activities on Saturday afternoon at 4:00 PM MST.</li>
+      </ul>
+      
+      <h2 class="text-3xl font-bold text-white">Location</h2>
+      <p class="mt-4 text-white">
+        The Space - Denver's Bitcoin Hub<br/>
+        3700 N Franklin St. Denver, CO
+      </p>
+      <ul class="list-disc pl-5 mt-4 text-white">
+        <li class="text-white">Easily accessible from Denver International Airport via Train (no rental car required).</li>
+        <li class="text-white">Ample accommodations nearby including hotels, restaurants, and bars within walking distance.</li>
+        <li class="text-white">Located in the heart of Denver's RiNo (River North) district.</li>
+      </ul>
+    </div>
+
+    <!-- Venue Images Carousel -->
+    <div class="mt-10 mb-10">
+      <div class="carousel-container relative max-w-4xl mx-auto">
+        <div class="carousel-wrapper overflow-hidden rounded-lg">
+          <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carousel-track">
+            <img src="/assets/venue/3700Franklin_Back.webp" alt="Bitcoin Financial Summit venue exterior back view" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
+            <img src="/assets/venue/3700Franklin_Front.webp" alt="Bitcoin Financial Summit venue exterior front view" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
+            <img src="/assets/venue/VenueEvent_deck_006.png" alt="Bitcoin Financial Summit venue interior event space" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
+            <img src="/assets/venue/VenueEvent_deck_007.png" alt="Bitcoin Financial Summit venue interior workspace" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
+            <img src="/assets/venue/VenueEvent_deck_014.png" alt="Bitcoin Financial Summit venue conference room" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
+            <img src="/assets/venue/VenueEvent_deck_016.png" alt="Bitcoin Financial Summit venue lounge area" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
+          </div>
+        </div>
+        <button class="carousel-btn carousel-prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75" onclick="moveCarousel(-1)">‹</button>
+        <button class="carousel-btn carousel-next absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75" onclick="moveCarousel(1)">›</button>
+        <div class="carousel-dots flex justify-center mt-4 space-x-2">
+          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(1)"></button>
+          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(2)"></button>
+          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(3)"></button>
+          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(4)"></button>
+          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(5)"></button>
+          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(6)"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Old Venue Images Grid - Removed -->
+    <!--
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+        <img 
+          src="/assets/venue/3700Franklin_Back.webp" 
+          alt="Bitcoin Financial Summit venue exterior back view" 
+          class="venue-image"
+          loading="lazy"
+          width="400"
+          height="300"
+        />
+        <img 
+          src="/assets/venue/3700Franklin_Front.webp" 
+          alt="Bitcoin Financial Summit venue exterior front view" 
+          class="venue-image"
+          loading="lazy"
+          width="400"
+          height="300"
+        />
+        <img 
+          src="/assets/venue/VenueEvent_deck_006.png" 
+          alt="Bitcoin Financial Summit venue interior event space" 
+          class="venue-image"
+          loading="lazy"
+          width="400"
+          height="300"
+        />
+        <img 
+          src="/assets/venue/VenueEvent_deck_007.png" 
+          alt="Bitcoin Financial Summit venue interior workspace" 
+          class="venue-image"
+          loading="lazy"
+          width="400"
+          height="300"
+        />
+        <img 
+          src="/assets/venue/VenueEvent_deck_014.png" 
+          alt="Bitcoin Financial Summit venue conference room" 
+          class="venue-image"
+          loading="lazy"
+          width="400"
+          height="300"
+        />
+        <img 
+          src="/assets/venue/VenueEvent_deck_016.png" 
+          alt="Bitcoin Financial Summit venue lounge area" 
+          class="venue-image"
+          loading="lazy"
+          width="400"
+          height="300"
+        />
+      </div>
+    -->
+
+    <!-- Schedule Section -->
+    <div class="mt-10 bg-gradient p-8 rounded-lg shadow-lg px-4 md:px-4 lg:px-10">
+      <h2 class="text-3xl font-bold text-white">Schedule</h2>
+      <p class="mt-4 text-white">
+        The detailed event schedule will be emailed to attendees. Detailed programming will follow, general discussions include:
+      </p>
+      <ul class="list-disc pl-5 mt-4 text-white">
+        <li class="text-white">Bitcoin's value proposition for advisors</li>
+        <li class="text-white">Inheritance & trust planning</li>
+        <li class="text-white">Custody</li>
+        <li class="text-white">Bitcoin financial planning</li>
+        <li class="text-white">Spending bitcoin</li>
+        <li class="text-white">Bitcoin account practices</li>
+        <li class="text-white">Corporate treasury management with bitcoin</li>
+        <li class="text-white">Bitcoin & Insurance</li>
+        <li class="text-white">Bitcoin financial products</li>
+        <li class="text-white">Bitcoin lending</li>
+      </ul>
+    </div>
+
+    <!-- Why Attend & Who Should Attend Side by Side -->
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Why Attend Section -->
+      <div class="bg-black p-8 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-white">Why Attend</h2>
+        <ul class="list-disc pl-5 mt-4 text-white">
+          <li class="text-white"><strong class="text-white">High-impact network:</strong> meet RIAs, CPAs, asset managers, HNWI and FinTech builders already serving Bitcoin clients</li>
+          <li class="text-white"><strong class="text-white">Tactical sessions:</strong> custody and collateralized lending, estate planning, insurance coverage, and more</li>
+          <li class="text-white"><strong class="text-white">Deal flow:</strong> live product announcements and sponsor showcases mean you see opportunities first</li>
+        </ul>
+      </div>
+
+      <!-- Who Should Attend Section -->
+      <div class="bg-black p-8 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-white">Who Should Attend</h2>
+        <ul class="list-disc pl-5 mt-4 text-white">
+          <li class="text-white">Tax professionals</li>
+          <li class="text-white">Attorneys</li>
+          <li class="text-white">Insurance agents</li>
+          <li class="text-white">Asset managers</li>
+          <li class="text-white">Institutional and high-net-worth investors</li>
+          <li class="text-white">Wealth advisors</li>
+          <li class="text-white">Bitcoin-curious</li>
+          <li class="text-white">Lenders</li>
+          <li class="text-white">Fintech leaders</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Event Highlights Section -->
+    <div class="mt-16 px-4 md:px-4 lg:px-10">
+      <h2 class="text-4xl font-bold text-black mb-6">Event Highlights</h2>
+      <ul class="list-disc pl-8 mt-6 text-black space-y-3">
+        <li class="text-lg"><strong class="text-black">Golf Classic:</strong> 18 holes of networking before content kicks off</li>
+        <li class="text-lg"><strong class="text-black">Keynotes:</strong> industry pioneers share hard-won lessons</li>
+        <li class="text-lg"><strong class="text-black">Panel sessions:</strong> practitioners debate real-world case studies</li>
+        <li class="text-lg"><strong class="text-black">Community meals & after-party:</strong> structured time to deepen relationships</li>
+        <li class="text-lg"><strong class="text-black">Live launches:</strong> be first to see new financial products revealed on stage</li>
+      </ul>
+    </div>
+
+    <!-- Pricing & Get Involved Side by Side -->
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Pricing Section -->
+      <div class="bg-gradient p-8 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-white">Pricing</h2>
+        <ul class="list-disc pl-5 mt-4 text-white">
+          <li class="text-white"><strong class="text-white font-bold text-2xl">General Admission</strong> – <span class="font-bold text-2xl">$285</span></li>
+          <li class="text-white"><strong class="text-white font-bold text-2xl">General Admission + Golf</strong> – <span class="font-bold text-2xl">$440</span></li>          
+          <li class="text-white"><strong class="text-white font-bold text-2xl">Golf Tournament Only</strong> – <span class="font-bold text-2xl">$155</span></li>
+        </ul>
+        <p class="mt-4 text-white">
+          Registration includes all sessions, meals, and the after-party.
+        </p>
+      </div>
+
+      <!-- Get Involved Section -->
+      <div class="bg-gradient p-8 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-white">Interested in Getting Involved?</h2>
+        <div class="flex flex-col items-center space-y-4 mt-8">
+          <Link href="mailto:contact@denver.space" target="_blank" style="primary" size="lg">
+            Contact Us for Sponsorships & Group Packages
+          </Link>
+          <Link href="https://pay.zaprite.com/pl_aKmt4yivzH" target="_blank" style="primary" size="lg">
+            Reserve Your Spot - Purchase Tickets
+          </Link>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing Statement -->
+    <div class="mt-16 px-4 md:px-4 lg:px-10">
+      <p class="text-2xl text-center text-black font-bold">
+        Shape the future of Bitcoin-powered finance—see you in Denver.
+      </p>
+    </div>
+
+  </Container>
+
+  <!-- FAQ Section with Black Background -->
+  <div class="bg-black py-12 mt-12">
+    <Container>
+      <h2 class="text-3xl font-bold text-white text-center mb-8">Frequently Asked Questions</h2>
+      
+      <div class="max-w-4xl mx-auto space-y-4">
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">Is this only for Bitcoin experts?</p>
+          <p class="text-sm text-gray-400">No. Content is designed for finance professionals with varying levels of Bitcoin familiarity.</p>
+        </div>
+        
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">Will sessions qualify for CPE or CE credit?</p>
+          <p class="text-sm text-gray-400">We are applying for credit in multiple disciplines; details announced in September.</p>
+        </div>
+        
+        <div class="mt-6">
+          <p class="font-semibold text-lg text-gray-200">What is the refund policy?</p>
+          <p class="text-sm text-gray-400">Full refunds through September 1, 2025; substitutions allowed anytime.</p>
+        </div>
+      </div>
+    </Container>
+  </div>
+</Layout>
+
+<style>
+  .carousel-container {
+    position: relative;
+  }
+  
+  .carousel-image {
+    object-fit: cover;
+    height: 400px;
+  }
+  
+  .carousel-btn {
+    z-index: 10;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dot.active {
+    background-color: #374151;
+  }
+  
+  .venue-image {
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+<script is:inline>
+  let currentSlideIndex = 0;
+  const totalSlides = 6;
+  
+  function moveCarousel(direction) {
+    currentSlideIndex += direction;
+    if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
+    if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
+    updateCarousel();
+  }
+  
+  function currentSlide(index) {
+    currentSlideIndex = index - 1;
+    updateCarousel();
+  }
+  
+  function updateCarousel() {
+    const track = document.getElementById('carousel-track');
+    const dots = document.querySelectorAll('.dot');
+    
+    track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+    
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentSlideIndex);
+    });
+  }
+  
+  // Auto-rotate carousel every 5 seconds
+  setInterval(() => {
+    moveCarousel(1);
+  }, 5000);
+  
+  // Initialize
+  updateCarousel();
+</script>

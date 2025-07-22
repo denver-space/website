@@ -1,0 +1,81 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon/components";
+
+// List of founding sponsor images, their alt text, and URLs
+const foundingSponsors = [
+  { src: "/assets/sponsors/casa.webp", alt: "Learn More", url: "https://casa.io", format: "webp" },
+  { src: "/assets/sponsors/compass.webp", alt: "Learn More", url: "https://compassmining.io", format: "webp" },
+  { src: "/assets/sponsors/fedi.webp", alt: "Learn More", url: "https://www.fedi.xyz", format: "webp" },
+  { src: "/assets/sponsors/unchained.webp", alt: "Learn More", url: "https://unchained.com", format: "webp" },
+];
+
+// List of other sponsor images, their alt text, and URLs
+const otherSponsors = [
+  { src: "/assets/sponsors/Colorado_AirFilter.webp", alt: "Support Us", url: "https://coloradoairfilter.com", format: "webp" },
+  { src: "/assets/sponsors/peonylane.png", alt: "Peony Lane Wine", url: "https://www.peonylanewine.com/", format: "png" },
+  { src: "/assets/sponsors/tallowz.webp", alt: "Tallowz", url: "https://tallowz.com", format: "webp" },
+  { src: "/assets/branding/Logos/TheSpace_Logos_Symbol_3.webp", alt: "Become a Sponsor", url: "/sponsors", format: "webp" },
+];
+---
+
+<div class="mt-24 mb-0 custom-gradient py-12">
+  <h2 class="text-center text-white px-12">Made Possible by our Founding Sponsors</h2>
+  <div class="sponsors-grid mt-10 mb-2">
+    {foundingSponsors.map(sponsor => (
+      <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="block">
+        {sponsor.format === 'svg' ? (
+          <div class="h-12 w-12 md:h-20 md:w-20 white-svg">
+            <img 
+              src={sponsor.src} 
+              alt={sponsor.alt} 
+              loading="lazy" 
+              class="object-contain h-full w-full"
+              width="80"
+              height="80"
+            />
+          </div>
+        ) : (
+          <img 
+            src={sponsor.src} 
+            alt={sponsor.alt} 
+            loading="lazy" 
+            class="h-12 w-12 md:h-20 md:w-20 object-cover rounded-full"
+            width="80"
+            height="80"
+          />
+        )}
+      </a>
+    ))}
+  </div>
+
+  <!-- Add new section heading here -->
+  <h2 class="text-center text-white px-12 mt-12">Become one of our Supporters</h2>
+  <div class="sponsors-grid mt-10 mb-2">
+    {otherSponsors.map(sponsor => (
+      <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="block">
+        {sponsor.format === 'svg' ? (
+          <div class="h-12 w-12 md:h-20 md:w-20 white-svg">
+            <img 
+              src={sponsor.src} 
+              alt={sponsor.alt} 
+              loading="lazy" 
+              class="object-contain h-full w-full"
+              width="80"
+              height="80"
+            />
+          </div>
+        ) : (
+          <img 
+            src={sponsor.src} 
+            alt={sponsor.alt} 
+            loading="lazy" 
+            class="h-12 w-12 md:h-20 md:w-20 object-cover rounded-full"
+            width="80"
+            height="80"
+          />
+        )}
+      </a>
+    ))}
+  </div>
+</div>

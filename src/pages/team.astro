@@ -1,0 +1,116 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+// Filter board entries with 'draft: false' & date before current date
+const publishedBoardMembers = await getCollection("board", ({ data }) => {
+  return !data.draft && new Date(data.publishDate) < new Date();
+});
+
+// Filter officer entries with 'draft: false' & date before current date
+const publishedOfficers = await getCollection("officers", ({ data }) => {
+  return !data.draft && new Date(data.publishDate) < new Date();
+});
+
+---
+
+<Layout title="Officers">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Team</Fragment>
+      <Fragment slot="desc">
+        The Space is run by a member-elected Board of Directors and operated by board-selected Officers who handle the day-to-day.
+      </Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <h2 class="font-bold text-3xl text-gray-800">
+        Board of Directors
+      </h2>
+      <p class="text-lg leading-relaxed text-slate-500">
+        The Board of Directors consists of member-elected individuals around the Rocky Mountains, committed to bitcoin, open source technologies, education, and community building. We come from diverse backgrounds with different personalities, experiences, and skills.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12 mb-12 team-grid">
+      {
+        publishedBoardMembers.map((boardMemberEntry) => (
+          <div class="group border-4 border-[#ffffff] rounded-lg p-2 team-card">
+            <div class="relative w-full aspect-square">
+              <Picture
+                src={boardMemberEntry.data.avatar.src}
+                alt={boardMemberEntry.data.avatar.alt}
+                sizes="(max-width: 480px) 280px, (max-width: 768px) 350px, 400px"
+                width={400}
+                height={400}
+                loading="lazy"
+                class="w-full rounded bg-white object-cover object-center aspect-square"
+              />
+              <div class="absolute inset-0 bg-black bg-opacity-80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-white p-4 space-y-3 rounded">
+                <h3 class="text-xl font-semibold">{boardMemberEntry.data.name}</h3>
+                <p>{boardMemberEntry.data.bio}</p>
+              </div>
+            </div>
+            <div class="mt-4 text-center">
+              <h2 class="text-lg text-gray-800">{boardMemberEntry.data.name}</h2>
+              <h3 class="text-sm text-slate-500">
+                {boardMemberEntry.data.title}
+              </h3>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <h2 class="font-bold text-3xl text-gray-800">
+        Officers
+      </h2>
+      <p class="text-lg leading-relaxed text-slate-500">
+        The Officers are selected by the Board of Directors to handle the day-to-day operations of The Space. They work closely with the Board to execute the organization's mission and serve the membership.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12 mb-20 team-grid">
+      {
+        publishedOfficers.map((officerEntry) => (
+          <div class="group border-4 border-[#ffffff] rounded-lg p-2 team-card">
+            <div class="relative w-full aspect-square">
+              <Picture
+                src={officerEntry.data.avatar.src}
+                alt={officerEntry.data.avatar.alt}
+                sizes="(max-width: 480px) 280px, (max-width: 768px) 350px, 400px"
+                width={400}
+                height={400}
+                loading="lazy"
+                class="w-full rounded bg-white object-cover object-center aspect-square"
+              />
+              <div class="absolute inset-0 bg-black bg-opacity-80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-white p-4 space-y-3 rounded">
+                <h3 class="text-xl font-semibold">{officerEntry.data.name}</h3>
+                <p>{officerEntry.data.bio}</p>
+              </div>
+            </div>
+            <div class="mt-4 text-center">
+              <h2 class="text-lg text-gray-800">{officerEntry.data.name}</h2>
+              <h3 class="text-sm text-slate-500">
+                {officerEntry.data.title}
+              </h3>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</Layout>
+
+<style>
+  .team-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  .team-card:hover {
+    transform: translateY(-5px);
+  }
+</style>
