@@ -72,30 +72,41 @@ import Link from "@components/ui/link.astro";
     </div>
 
     <!-- Venue Images Carousel -->
-    <div class="mt-10 mb-10">
-      <div class="carousel-container relative max-w-4xl mx-auto">
-        <div class="carousel-wrapper overflow-hidden rounded-lg">
-          <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carousel-track">
-            <img src="/assets/venue/3700Franklin_Back.webp" alt="Bitcoin Financial Summit venue exterior back view" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
-            <img src="/assets/venue/3700Franklin_Front.webp" alt="Bitcoin Financial Summit venue exterior front view" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
-            <img src="/assets/venue/VenueEvent_deck_006.png" alt="Bitcoin Financial Summit venue interior event space" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
-            <img src="/assets/venue/VenueEvent_deck_007.png" alt="Bitcoin Financial Summit venue interior workspace" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
-            <img src="/assets/venue/VenueEvent_deck_014.png" alt="Bitcoin Financial Summit venue conference room" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
-            <img src="/assets/venue/VenueEvent_deck_016.png" alt="Bitcoin Financial Summit venue lounge area" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
-          </div>
-        </div>
-        <button class="carousel-btn carousel-prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75" onclick="moveCarousel(-1)">‹</button>
-        <button class="carousel-btn carousel-next absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75" onclick="moveCarousel(1)">›</button>
-        <div class="carousel-dots flex justify-center mt-4 space-x-2">
-          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(1)"></button>
-          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(2)"></button>
-          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(3)"></button>
-          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(4)"></button>
-          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(5)"></button>
-          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(6)"></button>
-        </div>
-      </div>
-    </div>
+    <!-- Venue Images Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+      <img 
+        src="/assets/venue/3700Franklin_Back.webp" 
+        alt="Bitcoin Financial Summit venue exterior back view" 
+        class="venue-image" 
+        loading="lazy"
+        width="600"
+        height="400"
+      />
+      <img 
+        src="/assets/venue/3700Franklin_Front.webp" 
+        alt="Bitcoin Financial Summit venue exterior front view" 
+        class="venue-image" 
+        loading="lazy"
+        width="600"
+        height="400"
+      />
+      <img 
+        src="/assets/venue/VenueEvent_deck_006.png" 
+        alt="Bitcoin Financial Summit venue interior lounge space" 
+        class="venue-image" 
+        loading="lazy"
+        width="600"
+        height="400"
+      />
+      <img 
+        src="/assets/venue/VenueEvent_deck_007.png" 
+        alt="Bitcoin Financial Summit venue interior kitchen area" 
+        class="venue-image" 
+        loading="lazy"
+        width="600"
+        height="400"
+      />
+      <img 
 
     <!-- Old Venue Images Grid - Removed -->
     <!--
