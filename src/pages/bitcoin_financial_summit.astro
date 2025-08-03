@@ -316,39 +316,3 @@ import Link from "@components/ui/link.astro";
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 </style>
-
-<script is:inline>
-  let currentSlideIndex = 0;
-  const totalSlides = 6;
-  
-  function moveCarousel(direction) {
-    currentSlideIndex += direction;
-    if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
-    if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
-    updateCarousel();
-  }
-  
-  function currentSlide(index) {
-    currentSlideIndex = index - 1;
-    updateCarousel();
-  }
-  
-  function updateCarousel() {
-    const track = document.getElementById('carousel-track');
-    const dots = document.querySelectorAll('.dot');
-    
-    track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
-    
-    dots.forEach((dot, index) => {
-      dot.classList.toggle('active', index === currentSlideIndex);
-    });
-  }
-  
-  // Auto-rotate carousel every 5 seconds
-  setInterval(() => {
-    moveCarousel(1);
-  }, 5000);
-  
-  // Initialize
-  updateCarousel();
-</script>
