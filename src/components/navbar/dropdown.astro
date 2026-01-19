@@ -33,13 +33,20 @@ const { title, lastItem, children } = Astro.props;
           class="px-3 lg:py-2 lg:bg-white lg:rounded-md lg:shadow lg:border flex flex-col">
           {
             children.map((item) => (
-              <a
-                href={item.path}
-                target={item.target || "_self"}
-                rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
-                class="py-1 text-gray-600 hover:text-gray-900">
-                {item.title}
-              </a>
+              item.type === "divider" ? (
+                <div class="dropdown-divider">
+                  {item.label && <span class="dropdown-divider-label">{item.label}</span>}
+                  <hr />
+                </div>
+              ) : (
+                <a
+                  href={item.path}
+                  target={item.target || "_self"}
+                  rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
+                  class="py-1 text-gray-600 hover:text-gray-900">
+                  {item.title}
+                </a>
+              )
             ))
           }
         </div>
@@ -47,3 +54,23 @@ const { title, lastItem, children } = Astro.props;
     </DropdownItems>
   </DropdownContainer>
 </li>
+
+<style>
+  .dropdown-divider {
+    margin: 0.5rem 0;
+  }
+  .dropdown-divider hr {
+    border: none;
+    border-top: 1px solid #e5e5e5;
+    margin: 0;
+  }
+  .dropdown-divider-label {
+    display: block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #888;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+</style>

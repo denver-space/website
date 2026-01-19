@@ -156,13 +156,6 @@ declare module 'astro:content' {
   collection: "board";
   data: InferEntrySchema<"board">
 } & { render(): Render[".md"] };
-"02_zach.md": {
-	id: "02_zach.md";
-  slug: "02_zach";
-  body: string;
-  collection: "board";
-  data: InferEntrySchema<"board">
-} & { render(): Render[".md"] };
 "03_tyler.md": {
 	id: "03_tyler.md";
   slug: "03_tyler";

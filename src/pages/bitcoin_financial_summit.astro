@@ -1,351 +1,1065 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import Container from "@components/container.astro";
-import Sectionhead from "@components/sectionhead.astro";
-import Link from "@components/ui/link.astro";
 ---
 
-<Layout title="Bitcoin Financial Summit">
-  <Container class="w-full">
-    <Sectionhead>
-      <Fragment slot="title">BITCOIN FOR FINANCIAL SERVICES SUMMIT</Fragment>
-      <Fragment slot="desc">
-        Where Bitcoin meets modern finance
-      </Fragment>
-    </Sectionhead>
-
-    <!-- Purchase Tickets -->
-    <div class="flex justify-center mt-12">
-      <Link href="https://pay.zaprite.com/pl_aKmt4yivzH" target="_blank" style="primary" size="lg">
-        Purchase Tickets - Limited to 150 Professionals
-      </Link>
-    </div>
-
-    <!-- Event Schedule -->
-    <div class="flex justify-center mt-12">
-      <Link href="https://conference.denver.space/bitcoin-financial-services-summit-2025/talk/" target="_blank" style="primary" size="lg">
-        Summit Schedule
-      </Link>
-    </div>
-
-    <!-- Description Section -->
-    <div class="mt-16 px-4 md:px-4 lg:px-10">
-      <h2 class="text-4xl font-bold text-black mb-6">Overview</h2>
-      <p class="text-xl mt-4 text-left md:text-justify text-black leading-relaxed">
-        The Bitcoin for Financial Services Summit brings together the people who already move capital and advise clients so they can confidently deploy Bitcoin strategies. Over three days you will:
-      </p>
-      <ul class="list-disc pl-8 mt-6 text-black space-y-2">
-        <li class="text-lg">Hear what is working in the field today</li>
-        <li class="text-lg">See tomorrow's products before they ship</li>
-        <li class="text-lg">Build the relationships that turn ideas into revenue</li>
-      </ul>
-      <p class="text-xl mt-6 text-left md:text-justify text-black leading-relaxed font-semibold">
-        Reserve your spot now—limited to 150 forward-thinking professionals.
-      </p>
-    </div>
-
-    <!-- Summit Objectives Section -->
-    <div class="mt-16 px-4 md:px-4 lg:px-10">
-      <h2 class="text-4xl font-bold text-black mb-6">Summit Objectives</h2>
-      <ol class="list-decimal pl-8 mt-6 text-black space-y-3">
-        <li class="text-lg">Equip financial professionals with actionable Bitcoin knowledge</li>
-        <li class="text-lg">Spark partnerships that accelerate product & services development</li>
-        <li class="text-lg">Network with like-minded professionals</li>
-        <li class="text-lg">Discover qualified referral partners, products, and services to ensure your clients get the best Bitcoin experience possible</li>
-      </ol>
-    </div>
-
-    <!-- Date & Location Section -->
-    <div class="mt-10 bg-gradient p-8 rounded-lg shadow-lg px-4 md:px-4 lg:px-10">
-      <h2 class="text-3xl font-bold text-white mb-4">Dates & Times</h2>
-      <ul class="list-disc pl-5 mt-4 text-white">
-        <li class="text-white">Thursday, October 16 – Saturday, 18, 2025</li>
-        <li class="text-white">Golf on Thursday morning on the 16th starting at 10am</li>
-        <li class="text-white">Summit activities will start 10 AM MST Friday morning on the 17th. Feel free to arrive anytime after 8 AM for coffee and breakfast.</li>
-        <li class="text-white">We'll conclude a full day of summit activities on Saturday afternoon at 4:00 PM MST.</li>
-      </ul>
-      
-      <h2 class="text-3xl font-bold text-white">Location</h2>
-      <p class="mt-4 text-white">
-        The Space - Denver's Bitcoin Hub<br/>
-        3700 N Franklin St. Denver, CO
-      </p>
-      <ul class="list-disc pl-5 mt-4 text-white">
-        <li class="text-white">Easily accessible from Denver International Airport via Train (no rental car required).</li>
-        <li class="text-white">Ample accommodations nearby including hotels, restaurants, and bars within walking distance.</li>
-        <li class="text-white">Located in the heart of Denver's RiNo (River North) district.</li>
-      </ul>
-    </div>
-
-    <!-- Venue Images Carousel -->
-    <div class="mt-10 mb-10">
-      <div class="carousel-container relative max-w-4xl mx-auto">
-        <div class="carousel-wrapper overflow-hidden rounded-lg">
-          <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carousel-track">
-            <img src="/assets/events//bitcoin_financial_summit/BFS_banner.jpg" alt="Bitcoin Financial Services Summit Banner" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
-            <img src="/assets/venue/3700Franklin_Back.webp" alt="Bitcoin Financial Summit venue exterior back view" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
-            <img src="/assets/venue/3700Franklin_Front.webp" alt="Bitcoin Financial Summit venue exterior front view" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
-            <img src="/assets/venue/VenueEvent_deck_006.png" alt="Bitcoin Financial Summit venue interior event space" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
-            <img src="/assets/venue/VenueEvent_deck_007.png" alt="Bitcoin Financial Summit venue interior workspace" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
-            <img src="/assets/venue/VenueEvent_deck_014.png" alt="Bitcoin Financial Summit venue conference room" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
-            <img src="/assets/venue/VenueEvent_deck_016.png" alt="Bitcoin Financial Summit venue lounge area" class="carousel-image w-full flex-shrink-0" loading="lazy" width="800" height="600" />
+<Layout title="Bitcoin Financial Summit 2025">
+  <div class="bfs-page">
+    <!-- HERO with Banner -->
+    <section class="hero">
+      <div class="hero-banner">
+        <img src="/assets/events/bitcoin_financial_summit/BFS_banner.jpg" alt="Bitcoin Financial Services Summit 2025 - Denver Skyline at Twilight" />
+      </div>
+      <div class="hero-content">
+        <div class="hero-content-inner">
+          <div class="event-badge">
+            <span class="badge-text">OCTOBER 2025 • DENVER</span>
+          </div>
+          <p class="hero-tagline">Where Bitcoin Met Modern Finance</p>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">3</span>
+              <span class="stat-label">Days</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-number">150+</span>
+              <span class="stat-label">Professionals</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-number">30+</span>
+              <span class="stat-label">Sessions</span>
+            </div>
           </div>
         </div>
-        <button class="carousel-btn carousel-prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75" onclick="moveCarousel(-1)">‹</button>
-        <button class="carousel-btn carousel-next absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75" onclick="moveCarousel(1)">›</button>
-        <div class="carousel-dots flex justify-center mt-4 space-x-2">
-          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(1)"></button>
-          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(2)"></button>
-          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(3)"></button>
-          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(4)"></button>
-          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(5)"></button>
-          <button class="dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600" onclick="currentSlide(6)"></button>
+
+        <!-- 2026 ANNOUNCEMENT - integrated into hero -->
+        <div class="announcement-container">
+          <div class="announcement-card">
+            <div class="announcement-badge">2026</div>
+            <div class="announcement-content">
+              <h2>The Summit Returns</h2>
+              <p>Be the first to know when registration opens for the Bitcoin for Financial Services Summit 2026.</p>
+              <a href="mailto:contact@denver.space" class="btn-primary">Get Notified</a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Old Venue Images Grid - Removed -->
-    <!--
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
-        <img 
-          src="/assets/venue/3700Franklin_Back.webp" 
-          alt="Bitcoin Financial Summit venue exterior back view" 
-          class="venue-image"
-          loading="lazy"
-          width="400"
-          height="300"
-        />
-        <img 
-          src="/assets/venue/3700Franklin_Front.webp" 
-          alt="Bitcoin Financial Summit venue exterior front view" 
-          class="venue-image"
-          loading="lazy"
-          width="400"
-          height="300"
-        />
-        <img 
-          src="/assets/venue/VenueEvent_deck_006.png" 
-          alt="Bitcoin Financial Summit venue interior event space" 
-          class="venue-image"
-          loading="lazy"
-          width="400"
-          height="300"
-        />
-        <img 
-          src="/assets/venue/VenueEvent_deck_007.png" 
-          alt="Bitcoin Financial Summit venue interior workspace" 
-          class="venue-image"
-          loading="lazy"
-          width="400"
-          height="300"
-        />
-        <img 
-          src="/assets/venue/VenueEvent_deck_014.png" 
-          alt="Bitcoin Financial Summit venue conference room" 
-          class="venue-image"
-          loading="lazy"
-          width="400"
-          height="300"
-        />
-        <img 
-          src="/assets/venue/VenueEvent_deck_016.png" 
-          alt="Bitcoin Financial Summit venue lounge area" 
-          class="venue-image"
-          loading="lazy"
-          width="400"
-          height="300"
-        />
-      </div>
-    -->
-
-    <!-- Schedule Section -->
-    <div class="mt-10 bg-gradient p-8 rounded-lg shadow-lg px-4 md:px-4 lg:px-10">
-      <h2 class="text-3xl font-bold text-white">Schedule</h2>
-      <p class="mt-4 text-white">
-        The detailed event schedule will be emailed to attendees. Detailed programming will follow, general discussions include:
-      </p>
-      <ul class="list-disc pl-5 mt-4 text-white">
-        <li class="text-white">Bitcoin's value proposition for advisors</li>
-        <li class="text-white">Inheritance & trust planning</li>
-        <li class="text-white">Custody</li>
-        <li class="text-white">Bitcoin financial planning</li>
-        <li class="text-white">Spending bitcoin</li>
-        <li class="text-white">Bitcoin account practices</li>
-        <li class="text-white">Corporate treasury management with bitcoin</li>
-        <li class="text-white">Bitcoin & Insurance</li>
-        <li class="text-white">Bitcoin financial products</li>
-        <li class="text-white">Bitcoin lending</li>
-      </ul>
-    </div>
-
-    <!-- Why Attend & Who Should Attend Side by Side -->
-    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Why Attend Section -->
-      <div class="bg-black p-8 rounded-lg shadow-lg">
-        <h2 class="text-3xl font-bold text-white">Why Attend</h2>
-        <ul class="list-disc pl-5 mt-4 text-white">
-          <li class="text-white"><strong class="text-white">High-impact network:</strong> meet RIAs, CPAs, asset managers, HNWI and FinTech builders already serving Bitcoin clients</li>
-          <li class="text-white"><strong class="text-white">Tactical sessions:</strong> custody and collateralized lending, estate planning, insurance coverage, and more</li>
-          <li class="text-white"><strong class="text-white">Deal flow:</strong> live product announcements and sponsor showcases mean you see opportunities first</li>
-        </ul>
-      </div>
-
-      <!-- Who Should Attend Section -->
-      <div class="bg-black p-8 rounded-lg shadow-lg">
-        <h2 class="text-3xl font-bold text-white">Who Should Attend</h2>
-        <ul class="list-disc pl-5 mt-4 text-white">
-          <li class="text-white">Tax professionals</li>
-          <li class="text-white">Attorneys</li>
-          <li class="text-white">Insurance agents</li>
-          <li class="text-white">Asset managers</li>
-          <li class="text-white">Institutional and high-net-worth investors</li>
-          <li class="text-white">Wealth advisors</li>
-          <li class="text-white">Bitcoin-curious</li>
-          <li class="text-white">Lenders</li>
-          <li class="text-white">Fintech leaders</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Event Highlights Section -->
-    <div class="mt-16 px-4 md:px-4 lg:px-10">
-      <h2 class="text-4xl font-bold text-black mb-6">Event Highlights</h2>
-      <ul class="list-disc pl-8 mt-6 text-black space-y-3">
-        <li class="text-lg"><strong class="text-black">Golf Classic:</strong> 18 holes of networking before content kicks off</li>
-        <li class="text-lg"><strong class="text-black">Keynotes:</strong> industry pioneers share hard-won lessons</li>
-        <li class="text-lg"><strong class="text-black">Panel sessions:</strong> practitioners debate real-world case studies</li>
-        <li class="text-lg"><strong class="text-black">Community meals & after-party:</strong> structured time to deepen relationships</li>
-        <li class="text-lg"><strong class="text-black">Live launches:</strong> be first to see new financial products revealed on stage</li>
-      </ul>
-    </div>
-
-    <!-- Pricing & Get Involved Side by Side -->
-    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Pricing Section -->
-      <div class="bg-gradient p-8 rounded-lg shadow-lg">
-        <h2 class="text-3xl font-bold text-white">Pricing</h2>
-        <ul class="list-disc pl-5 mt-4 text-white">
-          <li class="text-white"><strong class="text-white font-bold text-2xl">General Admission</strong> – <span class="font-bold text-2xl">$285</span></li>
-          <li class="text-white"><strong class="text-white font-bold text-2xl">General Admission + Golf</strong> – <span class="font-bold text-2xl">$440</span></li>          
-          <li class="text-white"><strong class="text-white font-bold text-2xl">Golf Tournament Only</strong> – <span class="font-bold text-2xl">$155</span></li>
-        </ul>
-        <p class="mt-4 text-white">
-          Registration includes all sessions, meals, and the after-party.
-        </p>
-      </div>
-
-      <!-- Get Involved Section -->
-      <div class="bg-gradient p-8 rounded-lg shadow-lg">
-        <h2 class="text-3xl font-bold text-white">Interested in Getting Involved?</h2>
-        <div class="flex flex-col items-center space-y-4 mt-8">
-          <Link href="mailto:contact@denver.space" target="_blank" style="primary" size="lg">
-            Contact Us for Sponsorships & Group Packages
-          </Link>
-          <Link href="https://pay.zaprite.com/pl_aKmt4yivzH" target="_blank" style="primary" size="lg">
-            Reserve Your Spot - Purchase Tickets
-          </Link>
+    <!-- OVERVIEW -->
+    <section class="overview">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2>The Summit</h2>
+        </div>
+        <div class="overview-grid">
+          <div class="overview-text">
+            <p class="lead">The Bitcoin for Financial Services Summit brought together the professionals who move capital and advise clients—equipping them to confidently deploy Bitcoin strategies.</p>
+            <p>Over three transformative days in Denver, attendees gained actionable insights, forged valuable partnerships, and discovered the tools reshaping modern finance.</p>
+          </div>
+          <div class="overview-highlights">
+            <div class="highlight-item">
+              <span class="highlight-icon">&#9670;</span>
+              <span>Heard what was working in the field</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">&#9670;</span>
+              <span>Saw new products before they shipped</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">&#9670;</span>
+              <span>Built relationships that turn ideas into revenue</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Closing Statement -->
-    <div class="mt-16 px-4 md:px-4 lg:px-10">
-      <p class="text-2xl text-center text-black font-bold">
-        Shape the future of Bitcoin-powered finance—see you in Denver.
-      </p>
-    </div>
-
-  </Container>
-
-  <!-- FAQ Section with Black Background -->
-  <div class="bg-black py-12 mt-12">
-    <Container>
-      <h2 class="text-3xl font-bold text-white text-center mb-8">Frequently Asked Questions</h2>
-      
-      <div class="max-w-4xl mx-auto space-y-4">
-        <div class="mt-6">
-          <p class="font-semibold text-lg text-gray-200">Is this only for Bitcoin experts?</p>
-          <p class="text-sm text-gray-400">No. Content is designed for finance professionals with varying levels of Bitcoin familiarity.</p>
+    <!-- VENUE GALLERY -->
+    <section class="gallery">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2>The Venue</h2>
         </div>
-        
-        <div class="mt-6">
-          <p class="font-semibold text-lg text-gray-200">Will sessions qualify for CPE or CE credit?</p>
-          <p class="text-sm text-gray-400">We are applying for credit in multiple disciplines; details announced in September.</p>
+        <div class="gallery-grid">
+          <div class="gallery-main">
+            <img src="/assets/venue/3700Franklin_Front.webp" alt="The Space - Denver's Bitcoin Hub" loading="lazy" />
+            <div class="gallery-caption">
+              <h3>The Space</h3>
+              <p>Denver's Bitcoin Hub • RiNo District</p>
+            </div>
+          </div>
+          <div class="gallery-thumbs">
+            <img src="/assets/venue/VenueEvent_deck_006.png" alt="Event space interior" loading="lazy" />
+            <img src="/assets/venue/VenueEvent_deck_007.png" alt="Workspace area" loading="lazy" />
+            <img src="/assets/venue/VenueEvent_deck_014.png" alt="Conference room" loading="lazy" />
+            <img src="/assets/venue/VenueEvent_deck_016.png" alt="Lounge area" loading="lazy" />
+          </div>
         </div>
-        
-        <div class="mt-6">
-          <p class="font-semibold text-lg text-gray-200">What is the refund policy?</p>
-          <p class="text-sm text-gray-400">Full refunds through September 1, 2025; substitutions allowed anytime.</p>
+        <div class="venue-details">
+          <div class="venue-detail">
+            <span class="detail-icon">&#9992;</span>
+            <span>Direct train from Denver International Airport</span>
+          </div>
+          <div class="venue-detail">
+            <span class="detail-icon">&#9962;</span>
+            <span>Hotels, restaurants & bars within walking distance</span>
+          </div>
+          <div class="venue-detail">
+            <span class="detail-icon">&#9733;</span>
+            <span>Heart of Denver's creative RiNo district</span>
+          </div>
         </div>
       </div>
-    </Container>
+    </section>
+
+    <!-- TOPICS -->
+    <section class="topics">
+      <div class="container">
+        <div class="section-header light">
+          <span class="section-number">03</span>
+          <h2>Topics Covered</h2>
+        </div>
+        <div class="topics-grid">
+          <div class="topic-card">
+            <span class="topic-icon">&#128176;</span>
+            <h4>Value Proposition</h4>
+            <p>Bitcoin's role in modern advisory practices</p>
+          </div>
+          <div class="topic-card">
+            <span class="topic-icon">&#128220;</span>
+            <h4>Estate Planning</h4>
+            <p>Inheritance & trust strategies</p>
+          </div>
+          <div class="topic-card">
+            <span class="topic-icon">&#128274;</span>
+            <h4>Custody</h4>
+            <p>Secure storage solutions</p>
+          </div>
+          <div class="topic-card">
+            <span class="topic-icon">&#128200;</span>
+            <h4>Financial Planning</h4>
+            <p>Integrating Bitcoin into portfolios</p>
+          </div>
+          <div class="topic-card">
+            <span class="topic-icon">&#127970;</span>
+            <h4>Corporate Treasury</h4>
+            <p>Bitcoin for business reserves</p>
+          </div>
+          <div class="topic-card">
+            <span class="topic-icon">&#128737;</span>
+            <h4>Insurance</h4>
+            <p>Coverage & risk management</p>
+          </div>
+          <div class="topic-card">
+            <span class="topic-icon">&#128179;</span>
+            <h4>Lending</h4>
+            <p>Bitcoin-backed financing</p>
+          </div>
+          <div class="topic-card">
+            <span class="topic-icon">&#128202;</span>
+            <h4>Accounting</h4>
+            <p>Tax & compliance practices</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATTENDEES -->
+    <section class="attendees">
+      <div class="container">
+        <div class="attendees-grid">
+          <div class="attendees-card why">
+            <h3>Why They Came</h3>
+            <ul>
+              <li><strong>High-impact network:</strong> Connected with RIAs, CPAs, asset managers, and FinTech builders</li>
+              <li><strong>Tactical sessions:</strong> Deep dives on custody, lending, estate planning, and insurance</li>
+              <li><strong>Deal flow:</strong> First access to product announcements and sponsor showcases</li>
+            </ul>
+          </div>
+          <div class="attendees-card who">
+            <h3>Who Attended</h3>
+            <div class="attendee-tags">
+              <span class="tag">Tax Professionals</span>
+              <span class="tag">Attorneys</span>
+              <span class="tag">Insurance Agents</span>
+              <span class="tag">Asset Managers</span>
+              <span class="tag">Wealth Advisors</span>
+              <span class="tag">Institutional Investors</span>
+              <span class="tag">FinTech Leaders</span>
+              <span class="tag">Lenders</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="highlights">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-number">04</span>
+          <h2>Event Highlights</h2>
+        </div>
+        <div class="highlights-grid">
+          <div class="highlight-card">
+            <div class="highlight-number">&#9971;</div>
+            <h4>Golf Classic</h4>
+            <p>18 holes of networking kicked off the summit in style</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-number">&#127908;</div>
+            <h4>Keynotes</h4>
+            <p>Industry pioneers shared hard-won lessons from the front lines</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-number">&#128483;</div>
+            <h4>Panel Sessions</h4>
+            <p>Practitioners debated real-world case studies and strategies</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-number">&#127880;</div>
+            <h4>After-Party</h4>
+            <p>Community meals and evening events to deepen relationships</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <div class="container">
+        <div class="section-header light">
+          <span class="section-number">05</span>
+          <h2>Questions</h2>
+        </div>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h4>Was this only for Bitcoin experts?</h4>
+            <p>No. Content was designed for finance professionals with varying levels of Bitcoin familiarity—from curious to experienced.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Will there be a 2026 summit?</h4>
+            <p>Yes! The Bitcoin for Financial Services Summit returns in 2026. Contact us to be first to know when registration opens.</p>
+          </div>
+          <div class="faq-item">
+            <h4>How can I get involved in 2026?</h4>
+            <p>Email contact@denver.space for sponsorship opportunities, speaking proposals, or partnership inquiries.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing">
+      <div class="container">
+        <div class="closing-content">
+          <h2>Thank You</h2>
+          <p>To everyone who joined us in October 2025</p>
+          <div class="closing-divider"></div>
+          <p class="closing-cta">Stay tuned for <strong>Bitcoin for Financial Services Summit 2026</strong></p>
+          <a href="mailto:contact@denver.space" class="btn-outline">Contact Us About 2026</a>
+          <a href="https://conference.denver.space/bitcoin-financial-services-summit-2025/talk/" target="_blank" class="btn-text">View 2025 Schedule →</a>
+        </div>
+      </div>
+    </section>
   </div>
 </Layout>
 
 <style>
-  .carousel-container {
+  /* ========================================
+     DESIGN SYSTEM - Twilight Finance
+     ======================================== */
+
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Libre+Franklin:wght@300;400;500;600&display=swap');
+
+  .bfs-page {
+    --navy: #0f2847;
+    --navy-deep: #091a30;
+    --navy-light: #1a3a5c;
+    --twilight: #2d4a6b;
+    --slate: #3d5a7a;
+    --orange: #f5a623;
+    --orange-dark: #d4880c;
+    --cream: #faf8f5;
+    --white: #ffffff;
+    --gray: #8a9bae;
+    --gray-light: #c5d0db;
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Libre Franklin', -apple-system, sans-serif;
+
+    font-family: var(--font-body);
+    color: var(--navy-deep);
+    background: var(--cream);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ========================================
+     HERO
+     ======================================== */
+
+  .hero {
+    background: var(--navy-deep);
+  }
+
+  .hero-banner {
+    max-width: 1400px;
+    margin: 0 auto;
     position: relative;
   }
-  
-  .carousel-image {
-    object-fit: cover;
-    height: 400px;
+
+  .hero-banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, var(--navy-deep));
+    pointer-events: none;
   }
-  
-  .carousel-btn {
+
+  .hero-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .hero-content {
+    background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+    padding: 3rem 1.5rem 4rem;
+    margin-top: -60px;
+    position: relative;
     z-index: 10;
-    font-size: 24px;
-    width: 40px;
+  }
+
+  .hero-content-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .event-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--orange);
+    color: var(--navy-deep);
+    padding: 0.5rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .event-badge::before,
+  .event-badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  .event-badge::before {
+    left: -12px;
+    border-width: 14px 12px 14px 0;
+    border-color: transparent var(--orange) transparent transparent;
+  }
+
+  .event-badge::after {
+    right: -12px;
+    border-width: 14px 0 14px 12px;
+    border-color: transparent transparent transparent var(--orange);
+  }
+
+  .hero-tagline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 500;
+    color: var(--white);
+    margin: 0 0 2rem;
+    line-height: 1.2;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--gray-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .stat-divider {
+    width: 1px;
     height: 40px;
+    background: rgba(255,255,255,0.2);
+  }
+
+  /* ========================================
+     ANNOUNCEMENT (integrated into hero)
+     ======================================== */
+
+  .announcement-container {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+  }
+
+  .announcement-card {
     display: flex;
     align-items: center;
+    gap: 2rem;
+    background: rgba(255,255,255,0.05);
+    padding: 2rem 2.5rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    flex-wrap: wrap;
     justify-content: center;
+    text-align: center;
   }
-  
-  .dot.active {
-    background-color: #374151;
+
+  @media (min-width: 768px) {
+    .announcement-card {
+      text-align: left;
+      justify-content: flex-start;
+    }
   }
-  
-  .venue-image {
+
+  .announcement-badge {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .announcement-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--white);
+    margin: 0 0 0.5rem;
+  }
+
+  .announcement-content p {
+    color: var(--gray-light);
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--navy-deep);
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background: var(--orange-dark);
+    transform: translateY(-2px);
+  }
+
+  /* ========================================
+     SECTIONS
+     ======================================== */
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .section-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    color: var(--orange);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 600;
+    color: var(--navy-deep);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .section-header.light h2 {
+    color: var(--white);
+  }
+
+  .section-header.light .section-number {
+    color: var(--orange);
+  }
+
+  /* ========================================
+     OVERVIEW
+     ======================================== */
+
+  .overview {
+    padding: 5rem 0;
+    background: var(--cream);
+  }
+
+  .overview-grid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .overview-grid {
+      grid-template-columns: 1.5fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .overview-text .lead {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--navy);
+    margin: 0 0 1.5rem;
+  }
+
+  .overview-text p {
+    color: var(--slate);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .overview-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--white);
+    border-left: 3px solid var(--orange);
+    box-shadow: 0 2px 8px rgba(15, 40, 71, 0.05);
+  }
+
+  .highlight-icon {
+    color: var(--orange);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .highlight-item span:last-child {
+    font-size: 0.95rem;
+    color: var(--navy);
+  }
+
+  /* ========================================
+     GALLERY
+     ======================================== */
+
+  .gallery {
+    padding: 5rem 0;
+    background: var(--white);
+  }
+
+  .gallery-grid {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  .gallery-main {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .gallery-main img {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(15, 40, 71, 0.95), transparent);
+  }
+
+  .gallery-caption h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+    margin: 0 0 0.25rem;
+  }
+
+  .gallery-caption p {
+    font-size: 0.875rem;
+    color: var(--gray-light);
+    margin: 0;
+  }
+
+  .gallery-thumbs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .gallery-thumbs img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s;
+  }
+
+  .gallery-thumbs img:hover {
+    transform: scale(1.03);
+  }
+
+  .venue-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(15, 40, 71, 0.1);
+  }
+
+  .venue-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--slate);
+  }
+
+  .detail-icon {
+    font-size: 1.25rem;
+  }
+
+  /* ========================================
+     TOPICS
+     ======================================== */
+
+  .topics {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  }
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .topics-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .topic-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .topic-card:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--orange);
+  }
+
+  .topic-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .topic-card h4 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin: 0 0 0.5rem;
+  }
+
+  .topic-card p {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* ========================================
+     ATTENDEES
+     ======================================== */
+
+  .attendees {
+    padding: 5rem 0;
+    background: var(--cream);
+  }
+
+  .attendees-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .attendees-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .attendees-card {
+    padding: 2.5rem;
+    border-radius: 4px;
+  }
+
+  .attendees-card.why {
+    background: var(--navy-deep);
+    color: var(--white);
+  }
+
+  .attendees-card.who {
+    background: var(--white);
+    border: 1px solid rgba(15, 40, 71, 0.1);
+  }
+
+  .attendees-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+  }
+
+  .attendees-card.why h3 {
+    color: var(--orange);
+  }
+
+  .attendees-card.who h3 {
+    color: var(--navy);
+  }
+
+  .attendees-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .attendees-card li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .attendees-card li:last-child {
+    border-bottom: none;
+  }
+
+  .attendees-card li strong {
+    color: var(--orange);
+  }
+
+  .attendee-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--cream);
+    border: 1px solid rgba(15, 40, 71, 0.15);
+    font-size: 0.85rem;
+    color: var(--navy);
+    border-radius: 2px;
+  }
+
+  /* ========================================
+     HIGHLIGHTS
+     ======================================== */
+
+  .highlights {
+    padding: 5rem 0;
+    background: var(--white);
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .highlights-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .highlight-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(15, 40, 71, 0.1);
+    transition: all 0.3s;
+  }
+
+  .highlight-card:hover {
+    border-color: var(--orange);
+    box-shadow: 0 8px 24px rgba(15, 40, 71, 0.1);
+  }
+
+  .highlight-number {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .highlight-card h4 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 0 0 0.5rem;
+  }
+
+  .highlight-card p {
+    font-size: 0.875rem;
+    color: var(--slate);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ========================================
+     FAQ
+     ======================================== */
+
+  .faq {
+    padding: 5rem 0;
+    background: var(--navy-deep);
+  }
+
+  .faq-grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .faq-item h4 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--white);
+    margin: 0 0 0.75rem;
+  }
+
+  .faq-item p {
+    color: var(--gray);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ========================================
+     CLOSING
+     ======================================== */
+
+  .closing {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--twilight) 0%, var(--navy) 100%);
+    text-align: center;
+  }
+
+  .closing-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .closing h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    color: var(--white);
+    margin: 0 0 0.5rem;
+  }
+
+  .closing p {
+    font-size: 1.1rem;
+    color: var(--gray-light);
+    margin: 0;
+  }
+
+  .closing-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--orange);
+    margin: 2rem auto;
+  }
+
+  .closing-cta {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--white);
+    margin-bottom: 2rem !important;
+  }
+
+  .closing-cta strong {
+    color: var(--orange);
+  }
+
+  .btn-outline {
+    display: inline-block;
+    border: 2px solid var(--orange);
+    color: var(--orange);
+    padding: 0.875rem 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+    margin-bottom: 1rem;
+  }
+
+  .btn-outline:hover {
+    background: var(--orange);
+    color: var(--navy-deep);
+  }
+
+  .btn-text {
+    display: block;
+    color: var(--gray-light);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .btn-text:hover {
+    color: var(--white);
+  }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
+
+  @media (max-width: 640px) {
+    .hero-content {
+      padding: 2rem 1rem 3rem;
+      margin-top: -40px;
+    }
+
+    .hero-banner::after {
+      height: 80px;
+    }
+
+    .hero-stats {
+      gap: 1rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+
+    .stat-divider {
+      display: none;
+    }
+
+    .announcement-card {
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+
+    .announcement-badge {
+      font-size: 2rem;
+    }
+
+    .topics-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .topic-card {
+      padding: 1rem;
+    }
+
+    .highlights-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .hero-banner {
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+    }
   }
 </style>
-
-<script is:inline>
-  let currentSlideIndex = 0;
-  const totalSlides = 6;
-  
-  function moveCarousel(direction) {
-    currentSlideIndex += direction;
-    if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
-    if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
-    updateCarousel();
-  }
-  
-  function currentSlide(index) {
-    currentSlideIndex = index - 1;
-    updateCarousel();
-  }
-  
-  function updateCarousel() {
-    const track = document.getElementById('carousel-track');
-    const dots = document.querySelectorAll('.dot');
-    
-    track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
-    
-    dots.forEach((dot, index) => {
-      dot.classList.toggle('active', index === currentSlideIndex);
-    });
-  }
-  
-  // Auto-rotate carousel every 5 seconds
-  setInterval(() => {
-    moveCarousel(1);
-  }, 5000);
-  
-  // Initialize
-  updateCarousel();
-</script>

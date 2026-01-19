@@ -24,7 +24,7 @@ import Layout from "@layouts/Layout.astro";
           <span class="meta-divider">|</span>
           <span class="meta-item"><span class="label">LOC:</span> DENVER, CO</span>
           <span class="meta-divider">|</span>
-          <span class="meta-item"><span class="label">STATUS:</span> <span class="blink">ACCEPTING INVITES</span></span>
+          <span class="meta-item"><span class="label">STATUS:</span> <span class="blink">GET ON THE WAITLIST</span></span>
         </div>
         <div class="hero-cta">
           <a href="mailto:admin@heatpunks.org" class="btn-primary">
@@ -146,6 +146,8 @@ import Layout from "@layouts/Layout.astro";
               <span class="tag">FOSS Devs</span>
               <span class="tag">System Builders</span>
               <span class="tag">Pleb Miners</span>
+              <span class="tag">Home Builders</span>
+              <span class="tag">Architects</span>
               <span class="tag">HVAC Techs</span>
               <span class="tag">Plumbers</span>
               <span class="tag">Insurers</span>
@@ -336,6 +338,33 @@ import Layout from "@layouts/Layout.astro";
             <span class="link-icon">✈</span>
             <span class="link-label">TELEGRAM</span>
             <span class="link-url">t.me/heatpunks</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPONSORS -->
+    <section class="sponsors">
+      <div class="section-container">
+        <h3 class="sponsors-title">SUMMIT SPONSORS</h3>
+        <div class="sponsors-grid">
+          <a href="https://canaan.io" target="_blank" rel="noopener" class="sponsor-logo">
+            <img src="/assets/events/heatpunk_summit_2026/sponsors/canaa_logo.png" alt="Canaan" />
+          </a>
+          <a href="https://compassmining.io" target="_blank" rel="noopener" class="sponsor-logo">
+            <img src="/Sponsor Logos/Compass Mining/SVG/CM_Logo_Stacked_WhiteTxt.svg" alt="Compass Mining" />
+          </a>
+          <a href="https://exergyheat.com" target="_blank" rel="noopener" class="sponsor-logo">
+            <img src="/Sponsor Logos/Exergy/Logo1_white_horizontal.png" alt="Exergy" />
+          </a>
+          <a href="https://hrf.org" target="_blank" rel="noopener" class="sponsor-logo needs-invert">
+            <img src="/Sponsor Logos/HRF/Human_Rights_Foundation_logo.svg.png" alt="Human Rights Foundation" />
+          </a>
+          <a href="https://ocean.xyz" target="_blank" rel="noopener" class="sponsor-logo">
+            <img src="/Sponsor Logos/Ocean/signal-2026-01-07-150523_002.png" alt="Ocean" />
+          </a>
+          <a href="https://tessere.com" target="_blank" rel="noopener" class="sponsor-logo">
+            <img src="/Sponsor Logos/Tessere/TESS-WORDMARK-BLUE.webp" alt="Tessere" />
           </a>
         </div>
       </div>
@@ -1351,6 +1380,69 @@ import Layout from "@layouts/Layout.astro";
 
   .community-link:hover .link-url {
     color: var(--green);
+  }
+
+  /* ========================================
+     SPONSORS
+     ======================================== */
+
+  .sponsors {
+    background: var(--black);
+    padding: 3rem 0;
+    border-top: 1px solid var(--gray);
+  }
+
+  .sponsors-title {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--gray-light);
+    text-align: center;
+    margin: 0 0 2rem;
+  }
+
+  .sponsors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem 3rem;
+  }
+
+  .sponsor-logo {
+    opacity: 0.85;
+    transition: all 0.2s;
+  }
+
+  .sponsor-logo:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  .sponsor-logo img {
+    height: 50px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+  }
+
+  /* Invert dark logos to white for dark background */
+  .sponsor-logo.needs-invert img {
+    filter: brightness(0) invert(1);
+  }
+
+  .sponsor-logo.needs-invert:hover img {
+    filter: none;
+  }
+
+  @media (max-width: 640px) {
+    .sponsors-grid {
+      gap: 1.5rem 2rem;
+    }
+    .sponsor-logo img {
+      height: 40px;
+      max-width: 140px;
+    }
   }
 
   /* ========================================

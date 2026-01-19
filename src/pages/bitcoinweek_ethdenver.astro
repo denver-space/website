@@ -1,130 +1,966 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import Container from "@components/container.astro";
-import Sectionhead from "@components/sectionhead.astro";
 ---
 
-<Layout title="Bitcoin Week at The Space">
-  <Container class="w-full">
-    <Sectionhead>
-      <Fragment slot="title">Bitcoin Week at The Space</Fragment>
-      <Fragment slot="desc">Signal in the Noise</Fragment>
-    </Sectionhead>
-
-    <div class="flex justify-center mt-12">
-      <a data-label="Undermine 2025" style="background-color:#e51f5d;color:#ffffff;min-width:128px;padding:8px 16px;border-radius:8px;text-align:center;font-weight:bold;text-decoration:none;display:inline-block;" href="https://x.com/spacedenver" target="_blank" rel="no referrer noopener">Stay Tuned for Bitcoin Week 2026</a>
-    </div>
-
-    <!-- Overview -->
-    <div class="mt-12 text-center">
-      <p class="text-lg text-gray-700 px-4 md:px-10">
-        As ETH Denver fills the city with noise, The Space stands as a beacon of signal. 
-        We’ve curated a Bitcoin-only lineup of high-signal events, networking, and discussions. 
-        Whether you're a builder, investor, or simply Bitcoin-curious, this is where you need to be.
-      </p>
-    </div>
-
-    <!-- Events Schedule -->
-    <div class="mt-12">
-      <h2 class="text-3xl font-bold text-center">Schedule</h2>
-      <p class="text-lg text-gray-700 text-center mt-4">Bitcoin Week 2025 included the following events!</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        <!-- Bitcoin and Beer -->
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold">Bitcoin and Beer 🍻</h3>
-          <p class="text-gray-700 mt-2"><strong>📅 When:</strong> 02/25/25, 6PM - 8PM</p>
-          <p class="text-gray-700"><strong>🏠 Host:</strong> The Space</p>
-          <p class="text-gray-700 mt-2">
-            Social event open to the public. A chance for out-of-town guests to experience The Space.
-          </p>
-          <a href="https://lu.ma/3e6lg9g6" class="text-blue-600 mt-2 block">RSVP Here → (Expired)</a>
+<Layout title="Bitcoin Week 2025">
+  <div class="bw-page">
+    <!-- HERO - The Broadcast -->
+    <section class="hero">
+      <div class="scanlines"></div>
+      <div class="static-overlay"></div>
+      <div class="hero-content">
+        <div class="frequency-badge">
+          <span class="freq-label">FREQ</span>
+          <span class="freq-number">21M</span>
         </div>
-
-        <!-- PARTY-to-Quantum-Resistant-Hash -->
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold">PARTY-to-Quantum-Resistant-Hash! ⚡</h3>
-          <p class="text-gray-700 mt-2"><strong>📅 When:</strong> 02/26/25, 4:30PM - 8PM</p>
-          <p class="text-gray-700"><strong>🏠 Host:</strong> Anduro</p>
-          <p class="text-gray-700 mt-2">
-            Food & drinks with Anduro and Hunter Beast (BIP 360 author). Learn about securing Bitcoin against quantum threats.
-          </p>
-          <a href="https://lu.ma/h7lcm8xg?tk=sUgTYY" class="text-blue-600 mt-2 block">RSVP Here → (Expired)</a>
+        <h1 class="glitch" data-text="BITCOIN WEEK">BITCOIN WEEK</h1>
+        <p class="tagline">
+          <span class="signal-icon">◉</span>
+          Signal in the Noise
+        </p>
+        <div class="location-date">
+          <span>DENVER</span>
+          <span class="divider">//</span>
+          <span>FEB 2025</span>
         </div>
-
-        <!-- Make Bitcoin Money Again -->
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold">Make Bitcoin Money Again 💰</h3>
-          <p class="text-gray-700 mt-2"><strong>📅 When:</strong> 02/27/25, 10AM - 8PM</p>
-          <p class="text-gray-700"><strong>🏠 Host:</strong> Lightspark</p>
-          <p class="text-gray-700 mt-2">
-            A hackathon for Bitcoin developers to push the boundaries of **money apps**. Meet the Lightspark team and build the future of Bitcoin payments.
-          </p>
-          <a href="https://lu.ma/74c6mkek" class="text-blue-600 mt-2 block">RSVP Here → (Expired)</a>
+        <div class="waveform">
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
         </div>
+      </div>
+    </section>
 
-        <!-- Citrea Developer Meetup -->
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold">Citrea Developer Meetup 🔍</h3>
-          <p class="text-gray-700 mt-2"><strong>📅 When:</strong> 02/28/25, 5PM - 9PM</p>
-          <p class="text-gray-700"><strong>🏠 Host:</strong> Citrea</p>
-          <p class="text-gray-700 mt-2">
-            Explore how **zero-knowledge proofs** unlock Bitcoin’s blockspace for privacy, scalability, and real-world applications.
-          </p>
-          <a href="https://lu.ma/3bxjle94" class="text-blue-600 mt-2 block">RSVP Here → (Expired)</a>
-        </div>
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <div class="status-item">
+        <span class="status-label">STATUS</span>
+        <span class="status-value completed">TRANSMISSION COMPLETE</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">EVENTS</span>
+        <span class="status-value">4 BROADCASTS</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">NEXT</span>
+        <span class="status-value highlight">2026</span>
       </div>
     </div>
 
-    <!-- Get Involved -->
-    <div class="mt-16 text-center">
-      <h2 class="text-3xl font-bold">Want to support The Space or get involved next year?</h2>
-      <p class="text-lg text-gray-700 mt-4">
-        The Space is community-run. We don’t ask for much, but if you’d like to support our mission of pushing Bitcoin adoption and fostering high-signal events, reach out below.
-      </p>
-      <div class="flex justify-center mt-8 mb-12">
-        <a data-label="Support The Space" style="background-color:#e51f5d;color:#ffffff;min-width:128px;padding:12px 24px;border-radius:8px;text-align:center;font-weight:bold;text-decoration:none;display:inline-block;" href="mailto:contact@denver.space" target="_blank" rel="noopener noreferrer">
-          Contact Us
-        </a>
+    <!-- OVERVIEW -->
+    <section class="overview">
+      <div class="container">
+        <div class="terminal-header">
+          <span class="terminal-dots">
+            <span></span><span></span><span></span>
+          </span>
+          <span class="terminal-title">broadcast_log.txt</span>
+        </div>
+        <div class="terminal-body">
+          <p class="terminal-line"><span class="prompt">></span> As ETH Denver filled the city with noise, The Space stood as a beacon of signal.</p>
+          <p class="terminal-line"><span class="prompt">></span> We curated a Bitcoin-only lineup of high-signal events, networking, and discussions.</p>
+          <p class="terminal-line"><span class="prompt">></span> Builders, investors, and the Bitcoin-curious found their frequency here.</p>
+          <p class="terminal-line blink"><span class="prompt">></span> <span class="cursor">_</span></p>
+        </div>
       </div>
-    </div>
-  </Container>
+    </section>
+
+    <!-- EVENTS GRID -->
+    <section class="events">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-marker">[</span>
+          <h2>BROADCAST ARCHIVE</h2>
+          <span class="section-marker">]</span>
+        </div>
+        <p class="section-subtitle">February 2025 Transmission Log</p>
+
+        <div class="events-grid">
+          <!-- Event 1 -->
+          <div class="event-card">
+            <div class="event-signal">
+              <div class="signal-strength">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+            </div>
+            <div class="event-content">
+              <div class="event-date">02.25.25 // 18:00</div>
+              <h3>Bitcoin and Beer</h3>
+              <div class="event-host">
+                <span class="host-label">HOST:</span> The Space
+              </div>
+              <p>Social event open to the public. Out-of-town guests experienced The Space for the first time.</p>
+              <div class="event-status">
+                <span class="status-dot"></span>
+                ARCHIVED
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="event-card">
+            <div class="event-signal">
+              <div class="signal-strength">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+            </div>
+            <div class="event-content">
+              <div class="event-date">02.26.25 // 16:30</div>
+              <h3>PARTY-to-Quantum-Resistant-Hash!</h3>
+              <div class="event-host">
+                <span class="host-label">HOST:</span> Anduro
+              </div>
+              <p>Food & drinks with Anduro and Hunter Beast (BIP 360 author). Learned about securing Bitcoin against quantum threats.</p>
+              <div class="event-status">
+                <span class="status-dot"></span>
+                ARCHIVED
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="event-card">
+            <div class="event-signal">
+              <div class="signal-strength">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+            </div>
+            <div class="event-content">
+              <div class="event-date">02.27.25 // 10:00</div>
+              <h3>Make Bitcoin Money Again</h3>
+              <div class="event-host">
+                <span class="host-label">HOST:</span> Lightspark
+              </div>
+              <p>A hackathon for Bitcoin developers pushing the boundaries of money apps. Met the Lightspark team and built the future of Bitcoin payments.</p>
+              <div class="event-status">
+                <span class="status-dot"></span>
+                ARCHIVED
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 4 -->
+          <div class="event-card">
+            <div class="event-signal">
+              <div class="signal-strength">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+            </div>
+            <div class="event-content">
+              <div class="event-date">02.28.25 // 17:00</div>
+              <h3>Citrea Developer Meetup</h3>
+              <div class="event-host">
+                <span class="host-label">HOST:</span> Citrea
+              </div>
+              <p>Explored how zero-knowledge proofs unlock Bitcoin's blockspace for privacy, scalability, and real-world applications.</p>
+              <div class="event-status">
+                <span class="status-dot"></span>
+                ARCHIVED
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2026 ANNOUNCEMENT -->
+    <section class="announcement">
+      <div class="container">
+        <div class="announcement-card">
+          <div class="static-band"></div>
+          <div class="announcement-content">
+            <div class="next-freq">
+              <span class="label">NEXT TRANSMISSION</span>
+              <span class="year">2026</span>
+            </div>
+            <h2>Stay Tuned</h2>
+            <p>The signal returns. Bitcoin Week 2026 is coming.</p>
+            <div class="announcement-actions">
+              <a href="https://x.com/spacedenver" target="_blank" class="btn-signal">
+                <span class="btn-icon">◉</span>
+                Follow for Updates
+              </a>
+              <a href="mailto:contact@denver.space" class="btn-outline">
+                Get Involved
+              </a>
+            </div>
+          </div>
+          <div class="static-band"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing">
+      <div class="container">
+        <div class="closing-content">
+          <p class="closing-text">The Space is community-run.</p>
+          <p class="closing-subtext">Pushing Bitcoin adoption through high-signal events since 2023.</p>
+          <div class="signal-out">
+            <span>END TRANSMISSION</span>
+            <div class="signal-fade">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
 
 <style>
-  .grid-container {
-    display: grid;
-    grid-gap: 16px;
+  /* ========================================
+     DESIGN SYSTEM - Broadcast Signal
+     ======================================== */
+
+  @import url('https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  .bw-page {
+    --void: #0a0a0a;
+    --dark: #111111;
+    --charcoal: #1a1a1a;
+    --gray: #333333;
+    --gray-light: #666666;
+    --cyan: #00ffcc;
+    --cyan-dim: #00aa88;
+    --cyan-glow: rgba(0, 255, 204, 0.3);
+    --amber: #ff9500;
+    --amber-dim: #cc7700;
+    --white: #ffffff;
+    --white-dim: #aaaaaa;
+
+    --font-display: 'VT323', monospace;
+    --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+
+    font-family: var(--font-body);
+    background: var(--void);
+    color: var(--white);
+    overflow-x: hidden;
   }
 
-  /* Responsive layout */
-  @media (min-width: 1024px) {
-    .grid-container {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
   }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .grid-container {
+
+  /* ========================================
+     HERO
+     ======================================== */
+
+  .hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+      radial-gradient(ellipse at center, var(--charcoal) 0%, var(--void) 70%);
+    overflow: hidden;
+  }
+
+  .scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .static-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .frequency-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gray);
+    border: 1px solid var(--cyan-dim);
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+
+  .freq-label {
+    color: var(--gray-light);
+    letter-spacing: 0.1em;
+  }
+
+  .freq-number {
+    color: var(--cyan);
+    font-weight: 500;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 12vw, 8rem);
+    font-weight: 400;
+    color: var(--white);
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 40px var(--cyan-glow);
+  }
+
+  /* Glitch effect */
+  .glitch {
+    position: relative;
+    animation: glitch-skew 4s infinite linear alternate-reverse;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch::before {
+    color: var(--cyan);
+    animation: glitch-effect 3s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    transform: translate(-2px);
+    opacity: 0.8;
+  }
+
+  .glitch::after {
+    color: var(--amber);
+    animation: glitch-effect 2s infinite;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    transform: translate(2px);
+    opacity: 0.8;
+  }
+
+  @keyframes glitch-effect {
+    0%, 90%, 100% { transform: translate(0); }
+    92% { transform: translate(-5px, 2px); }
+    94% { transform: translate(5px, -2px); }
+    96% { transform: translate(-3px, 1px); }
+    98% { transform: translate(3px, -1px); }
+  }
+
+  @keyframes glitch-skew {
+    0%, 90%, 100% { transform: skew(0deg); }
+    92% { transform: skew(1deg); }
+    94% { transform: skew(-1deg); }
+    96% { transform: skew(0.5deg); }
+    98% { transform: skew(-0.5deg); }
+  }
+
+  .tagline {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    color: var(--cyan);
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .signal-icon {
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .location-date {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--gray-light);
+    letter-spacing: 0.2em;
+    margin-bottom: 2rem;
+  }
+
+  .divider {
+    color: var(--amber);
+    margin: 0 0.75rem;
+  }
+
+  .waveform {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 4px;
+    height: 40px;
+    margin-top: 2rem;
+  }
+
+  .wave {
+    width: 4px;
+    background: var(--cyan);
+    border-radius: 2px;
+    animation: wave 1.2s ease-in-out infinite;
+  }
+
+  .wave:nth-child(1) { height: 20px; animation-delay: 0s; }
+  .wave:nth-child(2) { height: 35px; animation-delay: 0.1s; }
+  .wave:nth-child(3) { height: 25px; animation-delay: 0.2s; }
+  .wave:nth-child(4) { height: 40px; animation-delay: 0.3s; }
+  .wave:nth-child(5) { height: 15px; animation-delay: 0.4s; }
+
+  @keyframes wave {
+    0%, 100% { transform: scaleY(1); opacity: 0.5; }
+    50% { transform: scaleY(0.5); opacity: 1; }
+  }
+
+  /* ========================================
+     STATUS BAR
+     ======================================== */
+
+  .status-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--dark);
+    border-top: 1px solid var(--gray);
+    border-bottom: 1px solid var(--gray);
+  }
+
+  .status-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .status-label {
+    color: var(--gray-light);
+    letter-spacing: 0.1em;
+  }
+
+  .status-value {
+    color: var(--white-dim);
+  }
+
+  .status-value.completed {
+    color: var(--cyan);
+  }
+
+  .status-value.highlight {
+    color: var(--amber);
+    font-weight: 500;
+  }
+
+  /* ========================================
+     OVERVIEW - Terminal Style
+     ======================================== */
+
+  .overview {
+    padding: 5rem 0;
+    background: var(--void);
+  }
+
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--gray);
+    border-radius: 8px 8px 0 0;
+  }
+
+  .terminal-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .terminal-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gray-light);
+  }
+
+  .terminal-dots span:first-child { background: #ff5f56; }
+  .terminal-dots span:nth-child(2) { background: #ffbd2e; }
+  .terminal-dots span:last-child { background: #27c93f; }
+
+  .terminal-title {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--white-dim);
+  }
+
+  .terminal-body {
+    background: var(--charcoal);
+    padding: 2rem;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid var(--gray);
+    border-top: none;
+  }
+
+  .terminal-line {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--white-dim);
+    margin: 0 0 1rem;
+    line-height: 1.6;
+  }
+
+  .terminal-line:last-child {
+    margin-bottom: 0;
+  }
+
+  .prompt {
+    color: var(--cyan);
+    margin-right: 0.5rem;
+  }
+
+  .cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* ========================================
+     EVENTS
+     ======================================== */
+
+  .events {
+    padding: 5rem 0;
+    background:
+      linear-gradient(180deg, var(--void) 0%, var(--dark) 50%, var(--void) 100%);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-marker {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--cyan);
+  }
+
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    color: var(--white);
+    margin: 0;
+    letter-spacing: 0.1em;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--gray-light);
+    margin: 0 0 3rem;
+  }
+
+  .events-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .events-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  @media (max-width: 767px) {
-    .grid-container {
+
+  .event-card {
+    display: flex;
+    background: var(--charcoal);
+    border: 1px solid var(--gray);
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .event-card:hover {
+    border-color: var(--cyan-dim);
+    box-shadow: 0 0 30px var(--cyan-glow);
+  }
+
+  .event-signal {
+    width: 40px;
+    background: var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .signal-strength {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 3px;
+  }
+
+  .signal-strength .bar {
+    width: 16px;
+    height: 4px;
+    background: var(--cyan);
+    opacity: 0.3;
+  }
+
+  .event-card:hover .signal-strength .bar {
+    opacity: 1;
+    animation: signal-pulse 0.5s ease-out;
+  }
+
+  .event-card:hover .signal-strength .bar:nth-child(1) { animation-delay: 0s; }
+  .event-card:hover .signal-strength .bar:nth-child(2) { animation-delay: 0.1s; }
+  .event-card:hover .signal-strength .bar:nth-child(3) { animation-delay: 0.2s; }
+  .event-card:hover .signal-strength .bar:nth-child(4) { animation-delay: 0.3s; }
+
+  @keyframes signal-pulse {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+  }
+
+  .event-content {
+    padding: 1.5rem;
+    flex: 1;
+  }
+
+  .event-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .event-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--white);
+    margin: 0 0 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .event-host {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--white-dim);
+    margin-bottom: 0.75rem;
+  }
+
+  .host-label {
+    color: var(--gray-light);
+  }
+
+  .event-content p {
+    font-size: 0.9rem;
+    color: var(--white-dim);
+    line-height: 1.5;
+    margin: 0 0 1rem;
+  }
+
+  .event-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--gray-light);
+    letter-spacing: 0.1em;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--cyan);
+    border-radius: 50%;
+  }
+
+  /* ========================================
+     ANNOUNCEMENT
+     ======================================== */
+
+  .announcement {
+    padding: 5rem 0;
+    background: var(--void);
+  }
+
+  .announcement-card {
+    position: relative;
+    background: var(--charcoal);
+    border: 2px solid var(--amber);
+    overflow: hidden;
+  }
+
+  .static-band {
+    height: 8px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--amber) 0px,
+      var(--amber) 2px,
+      transparent 2px,
+      transparent 4px
+    );
+    animation: static-scroll 0.5s linear infinite;
+  }
+
+  @keyframes static-scroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 8px 0; }
+  }
+
+  .announcement-content {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .next-freq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .next-freq .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gray-light);
+    letter-spacing: 0.2em;
+  }
+
+  .next-freq .year {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    color: var(--amber);
+    line-height: 1;
+    text-shadow: 0 0 30px rgba(255, 149, 0, 0.5);
+  }
+
+  .announcement-content h2 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--white);
+    margin: 0 0 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .announcement-content > p {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--white-dim);
+    margin: 0 0 2rem;
+  }
+
+  .announcement-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .btn-signal {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--cyan);
+    color: var(--void);
+    padding: 0.875rem 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+
+  .btn-signal:hover {
+    background: var(--white);
+    box-shadow: 0 0 20px var(--cyan-glow);
+  }
+
+  .btn-icon {
+    font-size: 1rem;
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--gray-light);
+    color: var(--white-dim);
+    padding: 0.875rem 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
+  /* ========================================
+     CLOSING
+     ======================================== */
+
+  .closing {
+    padding: 4rem 0;
+    background: var(--dark);
+    border-top: 1px solid var(--gray);
+  }
+
+  .closing-content {
+    text-align: center;
+  }
+
+  .closing-text {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--white-dim);
+    margin: 0 0 0.25rem;
+  }
+
+  .closing-subtext {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--gray-light);
+    margin: 0 0 2rem;
+  }
+
+  .signal-out {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .signal-out span:first-child {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--gray-light);
+    letter-spacing: 0.3em;
+  }
+
+  .signal-fade {
+    display: flex;
+    gap: 4px;
+  }
+
+  .signal-fade span {
+    width: 8px;
+    height: 8px;
+    background: var(--cyan);
+    border-radius: 50%;
+  }
+
+  .signal-fade span:nth-child(1) { opacity: 1; }
+  .signal-fade span:nth-child(2) { opacity: 0.7; }
+  .signal-fade span:nth-child(3) { opacity: 0.5; }
+  .signal-fade span:nth-child(4) { opacity: 0.3; }
+  .signal-fade span:nth-child(5) { opacity: 0.1; }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
+
+  @media (max-width: 640px) {
+    .hero {
+      min-height: 70vh;
+    }
+
+    .frequency-badge {
+      margin-bottom: 1.5rem;
+    }
+
+    .tagline {
+      font-size: 1rem;
+    }
+
+    .terminal-body {
+      padding: 1.5rem;
+    }
+
+    .terminal-line {
+      font-size: 0.85rem;
+    }
+
+    .events-grid {
       grid-template-columns: 1fr;
     }
-  }
 
-  img {
-    width: 100%;
-    height: auto;
-  }
+    .event-signal {
+      width: 30px;
+    }
 
-  .rounded-lg {
-    border-radius: 10px;
-  }
+    .event-content {
+      padding: 1rem;
+    }
 
-  .shadow-md {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    .event-content h3 {
+      font-size: 1.25rem;
+    }
+
+    .announcement-content {
+      padding: 2rem 1.5rem;
+    }
+
+    .next-freq .year {
+      font-size: 3rem;
+    }
+
+    .announcement-content h2 {
+      font-size: 2rem;
+    }
+
+    .status-bar {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 </style>

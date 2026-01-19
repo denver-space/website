@@ -32,6 +32,7 @@ const menuitems = [
     badge: "",
     children: [
       { title: "Event Calendar", path: "/events" },
+      { type: "divider", label: "Annual Summits" },
       { title: "Bitcoin Financial Services Summit", path: "/bitcoin_financial_summit" },
       { title: "Heatpunk Summit", path: "/heatpunk_summit" },
       { title: "Bitcoin Week", path: "/bitcoinweek_ethdenver" },
@@ -103,7 +104,7 @@ const menuitems = [
             ))
           }
         </ul>
-        <div class="lg:hidden flex items-center mt-3 gap-4">
+        <div class="lg:hidden flex items-center mt-3 pb-4 gap-4">
           <Link href="https://nextcloud.denver.space/login?clear=1" size="md" block>Sign In</Link>
         </div>
       </MenuItems>
