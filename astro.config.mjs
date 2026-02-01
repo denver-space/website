@@ -13,6 +13,9 @@ export default defineConfig({
     },
   })],
   site: "https://denver.space",
+  redirects: {
+    '/heatpunk_summit': 'https://heatpunks.org/summit'
+  },
   output: "server",
   adapter: node({
     mode: "standalone"
