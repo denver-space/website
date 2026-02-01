@@ -14,7 +14,8 @@ export default defineConfig({
   })],
   site: "https://denver.space",
   redirects: {
-    '/heatpunk_summit': 'https://heatpunks.org/summit'
+    '/heatpunk_summit': 'https://heatpunks.org/summit',
+    '/bitcoin_financial_summit': 'https://bffs.media'
   },
   output: "server",
   adapter: node({
