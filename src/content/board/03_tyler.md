@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 name: "Tyler S."
 title: "President"
 bio: "Founder of Exergy, a heating company powered by hashrate, and instigator of the Heatpunk movement."
