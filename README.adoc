@@ -1,1 +1,15 @@
 = Denver Space website
+
+== Development
+
+To run this project in dev mode:
+
+[source,bash]
+----
+npm install    # Install dependencies (if not already done)
+npm run dev    # Start the dev server
+----
+
+Alternatively, use `npm start` as an alias for `npm run dev`.
+
+The dev server will start on `http://localhost:3000` (or another port if 3000 is in use) and will automatically reload when you make changes.
