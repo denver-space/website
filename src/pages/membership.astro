@@ -25,29 +25,7 @@ const pricing = [
       text: "Apply for Membership",
       link: "/membership-application",
     },
-  }, 
-    {
-    name: "Hyper Bitcoiner",
-    price: {
-      monthly: "$300/mo",
-      annual: "$3600",
-      discount: "0%",
-      original: "$300",
-    },
-    popular: true,
-    features: [
-    "Bring Guests with You Whenever",
-    "Vote in Board Elections",
-    "Private Voting Member Events",
-    "Community Leadership Opportunities",
-    "Contribute to our Educational Mission",
-    "Free Space t-shirt ",
-    ],
-    button: {
-      text: "Apply for Membership",
-      link: "/membership-application",
-    },
-  }, 
+  }
 ];
 ---
 
@@ -60,9 +38,8 @@ const pricing = [
         <Fragment slot="desc"> What do you do in The Space? <br/>
         </Fragment>
       </Sectionhead>
-      <div class="grid md:grid-cols-2 gap-6 mx-auto max-w-4xl mt-12 mb-12 items-stretch h-full justify-center">
+      <div class="grid gap-6 mx-auto max-w-2xl mt-12 mb-12 items-stretch h-full justify-center">
         <PricingCard plan={pricing[0]} />
-        <PricingCard plan={pricing[1]} />
       </div>
       
     </Container>
